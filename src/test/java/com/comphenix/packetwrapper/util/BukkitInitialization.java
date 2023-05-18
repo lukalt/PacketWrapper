@@ -6,13 +6,14 @@ import com.comphenix.protocol.reflect.accessors.FieldAccessor;
 import com.comphenix.protocol.utility.Util;
 import net.minecraft.server.level.WorldServer;
 import org.apache.logging.log4j.LogManager;
-import org.bukkit.Bukkit;
-import org.bukkit.Server;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.craftbukkit.v1_19_R3.CraftServer;
 import org.bukkit.craftbukkit.v1_19_R3.CraftWorld;
 import org.bukkit.craftbukkit.v1_19_R3.inventory.CraftItemFactory;
 import org.bukkit.craftbukkit.v1_19_R3.util.Versioning;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.Recipe;
+import org.bukkit.inventory.ShapedRecipe;
 import org.spigotmc.SpigotWorldConfig;
 
 import java.lang.reflect.InvocationTargetException;
@@ -92,6 +93,9 @@ public class BukkitInitialization {
 
             when(mockedServer.getItemFactory()).thenReturn(CraftItemFactory.instance());
             when(mockedServer.isPrimaryThread()).thenReturn(true);
+            when(mockedServer.recipeIterator()).thenReturn(List.<Recipe>of(
+                  //  new ShapedRecipe(NamespacedKey.minecraft("wooden_axe"), new ItemStack(Material.WOODEN_AXE)).shape("aa0","ab0","0b0").setIngredient('a', Material.OAK_WOOD).setIngredient('b', Material.STICK)
+            ).iterator());
 
             Class<?> worldServerClass = getClass("net.minecraft.server.level.WorldServer", "net.minecraft.server.level.ServerLevel");
             Object nmsWorld = mock(worldServerClass);

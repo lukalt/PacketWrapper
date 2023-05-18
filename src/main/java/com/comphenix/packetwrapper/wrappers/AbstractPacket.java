@@ -92,4 +92,9 @@ public abstract class AbstractPacket {
     public void receivePacket(Player sender) {
         ProtocolLibrary.getProtocolManager().receiveClientPacket(sender, getHandle());
     }
+
+    @Override
+    public String toString() {
+        return "PacketWrapper[packet_name=" + handle.getType().name() + "]";
+    }
 }

@@ -2,8 +2,9 @@ package com.comphenix.packetwrapper.wrappers.play.clientbound;
 
 import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.protocol.PacketType;
-import com.comphenix.protocol.events.InternalStructure;
 import com.comphenix.protocol.events.PacketContainer;
+import com.comphenix.protocol.wrappers.BukkitConverters;
+import com.comphenix.protocol.wrappers.WrappedAttribute;
 
 import java.util.List;
 
@@ -42,8 +43,8 @@ public class WrapperPlayServerUpdateAttributes extends AbstractPacket {
      *
      * @return 'attributes'
      */
-    public List<InternalStructure> getAttributes() {
-        return this.handle.getLists(InternalStructure.getConverter()).read(0);
+    public List<WrappedAttribute> getAttributes() {
+        return this.handle.getLists(BukkitConverters.getWrappedAttributeConverter()).read(0);
     }
 
     /**
@@ -51,8 +52,7 @@ public class WrapperPlayServerUpdateAttributes extends AbstractPacket {
      *
      * @param value New value for field 'attributes'
      */
-    public void setAttributes(List<InternalStructure> value) {
-        this.handle.getLists(InternalStructure.getConverter()).write(0, value);
+    public void setAttributes(List<WrappedAttribute> value) {
+        this.handle.getLists(BukkitConverters.getWrappedAttributeConverter()).write(0, value);
     }
-
 }
