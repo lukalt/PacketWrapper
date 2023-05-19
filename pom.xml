@@ -158,6 +158,8 @@
                 <configuration>
                     <failOnError>false</failOnError>
                     <encoding>ISO-8859-1</encoding>
+                    <reportOutputDirectory>javadocs</reportOutputDirectory>
+                    <destDir>apidocs</destDir>
                     <doctitle>PacketWrapper JavaDocs</doctitle>
                     <windowtitle>PacketWrapper JavaDocs</windowtitle>
                     <bottom>Copyright &#169; {inceptionYear}&#x2013;{currentYear}
@@ -205,4 +207,20 @@
             </plugin>
         </plugins>
     </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <failOnError>false</failOnError>
+                    <reportOutputDirectory>javadocs</reportOutputDirectory>
+                    <destDir>apidocs</destDir>
+                    <show>public</show>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>

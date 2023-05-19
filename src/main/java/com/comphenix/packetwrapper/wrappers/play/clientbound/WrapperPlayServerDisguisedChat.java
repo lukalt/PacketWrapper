@@ -40,7 +40,7 @@ public class WrapperPlayServerDisguisedChat extends AbstractPacket {
     /**
      * Retrieves the value of field 'chatType'
      * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
-     * @link getChatType
+     * @deprecated Use {@link #getChatType()} instead
      * @return 'chatType'
      */
     @Deprecated
@@ -51,7 +51,7 @@ public class WrapperPlayServerDisguisedChat extends AbstractPacket {
     /**
      * Sets the value of field 'chatType'
      * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
-     * @link setChatType
+     * @deprecated Use {@link #setChatType(WrappedBoundChatType)} instead
      * @param value New value for field 'chatType'
      */
     @Deprecated

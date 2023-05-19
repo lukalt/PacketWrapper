@@ -97,7 +97,7 @@ public class WrapperPlayServerLookAt extends AbstractPacket {
 
     /**
      * Retrieves the value of field 'fromAnchor'
-     * @link getFromAnchor
+     * @deprecated Use {@link #getFromAnchor()} instead
      * @return 'fromAnchor'
      */
     @Deprecated
@@ -108,7 +108,7 @@ public class WrapperPlayServerLookAt extends AbstractPacket {
     /**
      * Sets the value of field 'fromAnchor'
      * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
-     * @link setFromAnchor
+     * @deprecated Use {@link #setFromAnchor(Anchor)} instead
      * @param value New value for field 'fromAnchor'
      */
     @Deprecated
@@ -119,7 +119,7 @@ public class WrapperPlayServerLookAt extends AbstractPacket {
     /**
      * Retrieves the value of field 'toAnchor'
      * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
-     * @link getToAnchor
+     * @deprecated Use {@link #getToAnchor()} instead
      * @return 'toAnchor'
      */
     @Deprecated
@@ -130,7 +130,7 @@ public class WrapperPlayServerLookAt extends AbstractPacket {
     /**
      * Sets the value of field 'toAnchor'
      * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
-     * @link setToAnchor
+     * @deprecated Use {@link #setToAnchor(Anchor)} instead
      * @param value New value for field 'toAnchor'
      */
     @Deprecated

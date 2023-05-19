@@ -30,24 +30,24 @@ public class WrapperPlayClientBeacon extends AbstractPacket {
     }
 
     /**
-     * /* Sets the value of field 'primary'
-     * /* @param value New value for field 'primary'
+     * Sets the value of field 'primary'
+     * @param value New value for field 'primary'
      */
     public void setPrimary(@Nullable PotionEffect value) {
         this.handle.getOptionals(BukkitConverters.getPotionEffectConverter()).write(0, Optional.ofNullable(value));
     }
 
     /**
-     * /* Retrieves the value of field 'secondary'
-     * /* @return 'secondary'
+     * Retrieves the value of field 'secondary'
+     * @return 'secondary'
      */
     public Optional<PotionEffect> getSecondary() {
         return this.handle.getOptionals(BukkitConverters.getPotionEffectConverter()).read(1);
     }
 
     /**
-     * /* Sets the value of field 'secondary'
-     * /* @param value New value for field 'secondary'
+     * Sets the value of field 'secondary'
+     * @param value New value for field 'secondary'
      */
     public void setSecondary(@Nullable PotionEffect value) {
         this.handle.getOptionals(BukkitConverters.getPotionEffectConverter()).write(1, Optional.ofNullable(value));

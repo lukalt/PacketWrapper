@@ -140,7 +140,7 @@ public class WrapperPlayServerLogin extends AbstractPacket {
 
     /**
      * Retrieves the value of field 'dimensionType'
-     * @link getDimensiuonType
+     * @deprecated Use {@link #getDimensionType()} instead
      * @return 'dimensionType'
      */
     @Deprecated
@@ -150,7 +150,7 @@ public class WrapperPlayServerLogin extends AbstractPacket {
 
     /**
      * Sets the value of field 'dimensionType'
-     * @link setDimensionType
+     * @deprecated Use {@link #setDimensionType(ResourceKey)} instead
      * @param value New value for field 'dimensionType'
      */
     @Deprecated
@@ -182,7 +182,7 @@ public class WrapperPlayServerLogin extends AbstractPacket {
 
     /**
      * Retrieves the value of field 'dimension'
-     * @link getDimension
+     * @deprecated Use {@link #getDimension()} instead
      * @return 'dimension'
      */
     @Deprecated
@@ -192,7 +192,7 @@ public class WrapperPlayServerLogin extends AbstractPacket {
 
     /**
      * Sets the value of field 'dimension'
-     * @link setDimension
+     * @deprecated Use {@link #setDimension(World)} instead
      * @param value New value for field 'dimension'
      */
     @Deprecated
