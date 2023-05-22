@@ -9,6 +9,9 @@ public class WrapperPlayServerRemoveEntityEffect extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.REMOVE_ENTITY_EFFECT;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerRemoveEntityEffect() {
         super(TYPE);
     }

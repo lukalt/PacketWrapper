@@ -1,7 +1,10 @@
 # PacketWrapper
 
 [![Build](https://github.com/lukalt/PacketWrapper/actions/workflows/build.yml/badge.svg)](https://github.com/lukalt/PacketWrapper/actions/workflows/build.yml)
-
+[![Javadoc](https://img.shields.io/badge/JavaDoc-Online-green)](https://lukalt.github.io/PacketWrapper/javadocs/apidocs)
+![GitHub](https://img.shields.io/github/license/lukalt/PacketWrapper)
+[![ProtocolLib](https://img.shields.io/badge/ProtocolLib-%3E%3D%205.1.0--SNAPSHOT-blue)](https://ci.dmulloy2.net/job/ProtocolLib/645/)
+[![ProtocolLib](https://img.shields.io/badge/Minecraft-1.19.4-green)](https://papermc.io/downloads/paper)
 
 This is an unofficial continuation of PacketWrapper by dmulloy2 and aadnk. The original versions can be found [here](https://github.com/dmulloy2/PacketWrapper) and [here](https://github.com/aadnk/PacketWrapper).
 
@@ -19,7 +22,7 @@ First, add this repository
 <repositories>
     <repository>
         <id>lukasalt-repo</id>
-        <url>https://jitpack.io</url>
+        <url>https://repo.lukasa.lt/repository/maven-public/</url>
     </repository>
 </repositories>
 ```
@@ -48,7 +51,7 @@ First register the jitpack repository in your build.gradle:
 ```
 repositories {
     ...
-    maven { url 'https://jitpack.io' }
+    maven { url 'https://repo.lukasa.lt/repository/maven-public/' }
 }
 ```
 

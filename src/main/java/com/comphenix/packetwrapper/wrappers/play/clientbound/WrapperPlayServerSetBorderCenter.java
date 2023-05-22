@@ -8,6 +8,9 @@ public class WrapperPlayServerSetBorderCenter extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.SET_BORDER_CENTER;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerSetBorderCenter() {
         super(TYPE);
     }

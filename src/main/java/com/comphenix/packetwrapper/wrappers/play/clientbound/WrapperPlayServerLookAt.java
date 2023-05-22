@@ -15,6 +15,9 @@ public class WrapperPlayServerLookAt extends AbstractPacket {
     public static final PacketType TYPE = PacketType.Play.Server.LOOK_AT;
     private static final Class<?> ANCHOR_TYPE = MinecraftReflection.getMinecraftClass("commands.arguments.EntityAnchorArgument$Anchor", "commands.arguments.ArgumentAnchor$Anchor");
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerLookAt() {
         super(TYPE);
     }

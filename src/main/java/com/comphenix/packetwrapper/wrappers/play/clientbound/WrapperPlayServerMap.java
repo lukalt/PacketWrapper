@@ -17,6 +17,9 @@ public class WrapperPlayServerMap extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.MAP;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerMap() {
         super(TYPE);
     }

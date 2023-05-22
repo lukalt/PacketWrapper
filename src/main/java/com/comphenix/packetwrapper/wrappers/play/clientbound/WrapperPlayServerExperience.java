@@ -8,6 +8,9 @@ public class WrapperPlayServerExperience extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.EXPERIENCE;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerExperience() {
         super(TYPE);
     }

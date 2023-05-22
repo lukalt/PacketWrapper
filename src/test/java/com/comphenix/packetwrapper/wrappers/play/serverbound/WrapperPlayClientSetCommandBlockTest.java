@@ -1,4 +1,4 @@
-package com.comphenix.packetwrapper.wrappers.play.clientbound;
+package com.comphenix.packetwrapper.wrappers.play.serverbound;
 
 import com.comphenix.packetwrapper.BaseTestInitialization;
 import com.comphenix.packetwrapper.wrappers.play.serverbound.WrapperPlayClientSetCommandBlock;

@@ -5,6 +5,9 @@ import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.wrappers.WrappedChatComponent;
 
+/**
+ * Unused packet
+ */
 public class WrapperPlayServerPlayerCombatKill extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.PLAYER_COMBAT_KILL;

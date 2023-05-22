@@ -14,6 +14,9 @@ public class WrapperPlayServerStatistic extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.STATISTIC;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerStatistic() {
         super(TYPE);
     }

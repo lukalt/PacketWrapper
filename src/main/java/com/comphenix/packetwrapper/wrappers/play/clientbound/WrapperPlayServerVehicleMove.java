@@ -8,6 +8,9 @@ public class WrapperPlayServerVehicleMove extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.VEHICLE_MOVE;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerVehicleMove() {
         super(TYPE);
     }

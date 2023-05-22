@@ -1,6 +1,7 @@
 package com.comphenix.packetwrapper.wrappers.play.serverbound;
 
 import com.comphenix.packetwrapper.wrappers.AbstractPacket;
+import com.comphenix.packetwrapper.wrappers.data.WrappedLastSeenMessagesUpdate;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.InternalStructure;
 import com.comphenix.protocol.events.PacketContainer;
@@ -8,6 +9,9 @@ import com.comphenix.protocol.wrappers.WrappedMessageSignature;
 
 import java.time.Instant;
 
+/**
+ * Sents by client to server when the player sends a (signed) chat messages
+ */
 public class WrapperPlayClientChat extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Client.CHAT;
@@ -21,18 +25,18 @@ public class WrapperPlayClientChat extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'message'
+     * Gets the raw message (max length: 256)
      *
-     * @return 'message'
+     * @return raw message
      */
     public String getMessage() {
         return this.handle.getStrings().read(0);
     }
 
     /**
-     * Sets the value of field 'message'
+     * Sets the raw message (max length: 256)
      *
-     * @param value New value for field 'message'
+     * @param value raw message
      */
     public void setMessage(String value) {
         this.handle.getStrings().write(0, value);
@@ -57,7 +61,7 @@ public class WrapperPlayClientChat extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'salt'
+     * Gets the salt to verify signatures
      *
      * @return 'salt'
      */
@@ -66,7 +70,7 @@ public class WrapperPlayClientChat extends AbstractPacket {
     }
 
     /**
-     * Sets the value of field 'salt'
+     * Sets the salt to verify signatures
      *
      * @param value New value for field 'salt'
      */
@@ -75,7 +79,7 @@ public class WrapperPlayClientChat extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'signature'
+     * Gets the signature used to sign this message
      *
      * @return 'signature'
      */
@@ -84,7 +88,7 @@ public class WrapperPlayClientChat extends AbstractPacket {
     }
 
     /**
-     * Sets the value of field 'signature'
+     * Sets the signature used to sign this message
      *
      * @param value New value for field 'signature'
      */
@@ -92,24 +96,43 @@ public class WrapperPlayClientChat extends AbstractPacket {
         this.handle.getMessageSignatures().write(0, value);
     }
 
+
+
     /**
      * Retrieves the value of field 'lastSeenMessages'
-     * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
      *
      * @return 'lastSeenMessages'
+     * @deprecated {Use {@link WrapperPlayClientChatCommand#getLastSeenMessages()} instead}
      */
     public InternalStructure getLastSeenMessagesInternal() {
-        return this.handle.getStructures().read(4); // TODO: No specific modifier has been found for type class net.minecraft.network.chat.LastSeenMessages$Update Generic type: class net.minecraft.network.chat.LastSeenMessages$Update
+        return this.handle.getStructures().read(4);
     }
 
     /**
      * Sets the value of field 'lastSeenMessages'
-     * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
+     *
+     * @param value New value for field 'lastSeenMessages'
+     * @deprecated {Use {@link WrapperPlayClientChatCommand#setLastSeenMessages(WrappedLastSeenMessagesUpdate)} instead}
+     */
+    public void setLastSeenMessagesInternal(InternalStructure value) {
+        this.handle.getStructures().write(4, value);
+    }
+
+    /**
+     * Retrieves the value of field 'lastSeenMessages'
+     *
+     * @return 'lastSeenMessages'
+     */
+    public WrappedLastSeenMessagesUpdate getLastSeenMessages() {
+        return this.handle.getModifier().withType(WrappedLastSeenMessagesUpdate.HANDLE_TYPE, WrappedLastSeenMessagesUpdate.CONVERTER).read(0);
+    }
+
+    /**
+     * Sets the value of field 'lastSeenMessages'
      *
      * @param value New value for field 'lastSeenMessages'
      */
-    public void setLastSeenMessagesInternal(InternalStructure value) {
-        this.handle.getStructures().write(4, value); // TODO: No specific modifier has been found for type class net.minecraft.network.chat.LastSeenMessages$Update Generic type: class net.minecraft.network.chat.LastSeenMessages$Update
+    public void setLastSeenMessages(WrappedLastSeenMessagesUpdate value) {
+        this.handle.getModifier().withType(WrappedLastSeenMessagesUpdate.HANDLE_TYPE, WrappedLastSeenMessagesUpdate.CONVERTER).write(0, value);
     }
-
 }

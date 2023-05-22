@@ -8,6 +8,9 @@ public class WrapperPlayServerUpdateHealth extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.UPDATE_HEALTH;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerUpdateHealth() {
         super(TYPE);
     }

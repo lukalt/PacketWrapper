@@ -18,6 +18,9 @@ public class WrapperPlayServerChat extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.CHAT;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerChat() {
         super(TYPE);
     }
@@ -161,23 +164,23 @@ public class WrapperPlayServerChat extends AbstractPacket {
     /**
      * Retrieves the value of field 'chatType'
      * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
-     *
+     * @deprecated {Use {@link WrapperPlayServerChat#getChatType()} instead}
      * @return 'chatType'
      */
     @Deprecated
     public InternalStructure getChatTypeInternal() {
-        return this.handle.getStructures().read(5); // TODO: No specific modifier has been found for type class net.minecraft.network.chat.ChatType$BoundNetwork Generic type: class net.minecraft.network.chat.ChatType$BoundNetwork
+        return this.handle.getStructures().read(5);
     }
 
     /**
      * Sets the value of field 'chatType'
      * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
-     *
+     * @deprecated {Use {@link WrapperPlayServerChat#setChatType(WrappedBoundChatType)} instead}
      * @param value New value for field 'chatType'
      */
     @Deprecated
     public void setChatTypeInternal(InternalStructure value) {
-        this.handle.getStructures().write(5, value); // TODO: No specific modifier has been found for type class net.minecraft.network.chat.ChatType$BoundNetwork Generic type: class net.minecraft.network.chat.ChatType$BoundNetwork
+        this.handle.getStructures().write(5, value);
     }
 
 

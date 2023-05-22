@@ -11,6 +11,9 @@ public class WrapperPlayServerTileEntityData extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.TILE_ENTITY_DATA;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerTileEntityData() {
         super(TYPE);
     }

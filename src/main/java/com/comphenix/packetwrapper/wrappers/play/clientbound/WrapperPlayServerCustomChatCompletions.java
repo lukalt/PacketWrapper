@@ -15,6 +15,10 @@ public class WrapperPlayServerCustomChatCompletions extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.CUSTOM_CHAT_COMPLETIONS;
     private static final Class<?> ACTION_TYPE = MinecraftReflection.getMinecraftClass("network.protocol.game.ClientboundCustomChatCompletionsPacket$Action");
+
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerCustomChatCompletions() {
         super(TYPE);
     }

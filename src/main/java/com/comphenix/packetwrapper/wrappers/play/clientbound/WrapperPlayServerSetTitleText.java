@@ -10,6 +10,9 @@ public class WrapperPlayServerSetTitleText extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.SET_TITLE_TEXT;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerSetTitleText() {
         super(TYPE);
     }

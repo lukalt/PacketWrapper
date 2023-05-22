@@ -8,6 +8,9 @@ public class WrapperPlayServerKeepAlive extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.KEEP_ALIVE;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerKeepAlive() {
         super(TYPE);
     }

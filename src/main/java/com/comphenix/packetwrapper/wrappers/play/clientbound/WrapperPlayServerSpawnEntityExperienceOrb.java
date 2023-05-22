@@ -10,6 +10,9 @@ import com.comphenix.protocol.events.PacketContainer;
  */
 public class WrapperPlayServerSpawnEntityExperienceOrb extends AbstractPacket {
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public static final PacketType TYPE = PacketType.Play.Server.SPAWN_ENTITY_EXPERIENCE_ORB;
 
     public WrapperPlayServerSpawnEntityExperienceOrb() {

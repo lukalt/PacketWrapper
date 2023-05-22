@@ -8,6 +8,9 @@ public class WrapperPlayServerUpdateSimulationDistance extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.UPDATE_SIMULATION_DISTANCE;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerUpdateSimulationDistance() {
         super(TYPE);
     }

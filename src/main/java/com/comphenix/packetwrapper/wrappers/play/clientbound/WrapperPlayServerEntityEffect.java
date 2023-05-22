@@ -1,5 +1,6 @@
 package com.comphenix.packetwrapper.wrappers.play.clientbound;
 
+import com.comphenix.packetwrapper.util.UtilityMethod;
 import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.InternalStructure;
@@ -13,9 +14,15 @@ import org.bukkit.potion.PotionEffectType;
 import javax.annotation.Nullable;
 
 public class WrapperPlayServerEntityEffect extends AbstractPacket {
-
     public static final PacketType TYPE = PacketType.Play.Server.ENTITY_EFFECT;
 
+    public static final int FLAG_AMBIENT = 0x01;
+    public static final int FLAG_SHOW_PARTICLE = 0x02;
+    public static final int FLAG_SHOW_ICON = 0x04;
+
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerEntityEffect() {
         super(TYPE);
     }
@@ -97,7 +104,7 @@ public class WrapperPlayServerEntityEffect extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'flags'
+     * Retrieves a bitmask for different flags of this effect
      *
      * @return 'flags'
      */
@@ -106,12 +113,54 @@ public class WrapperPlayServerEntityEffect extends AbstractPacket {
     }
 
     /**
-     * Sets the value of field 'flags'
+     * Sets a bitmask for different flags of this effect
      *
      * @param value New value for field 'flags'
      */
     public void setFlags(byte value) {
         this.handle.getBytes().write(1, value);
+    }
+
+    @UtilityMethod
+    public boolean isAmbient() {
+        return (this.getFlags() & FLAG_AMBIENT) > 0;
+    }
+
+    @UtilityMethod
+    public void setAmbient(boolean ambient) {
+        if (ambient) {
+            this.setFlags((byte) (this.getFlags() | FLAG_AMBIENT));
+        } else {
+            this.setFlags((byte) (this.getFlags() & ~FLAG_AMBIENT));
+        }
+    }
+
+    @UtilityMethod
+    public boolean isShowParticles() {
+        return (this.getFlags() & FLAG_SHOW_PARTICLE) > 0;
+    }
+
+    @UtilityMethod
+    public void setShowParticles(boolean showParticles) {
+        if (showParticles) {
+            this.setFlags((byte) (this.getFlags() | FLAG_SHOW_PARTICLE));
+        } else {
+            this.setFlags((byte) (this.getFlags() & ~FLAG_SHOW_PARTICLE));
+        }
+    }
+
+    @UtilityMethod
+    public boolean isShowIcon() {
+        return (this.getFlags() & FLAG_SHOW_ICON) > 0;
+    }
+
+    @UtilityMethod
+    public void setShowIcon(boolean showIcon) {
+        if (showIcon) {
+            this.setFlags((byte) (this.getFlags() | FLAG_SHOW_ICON));
+        } else {
+            this.setFlags((byte) (this.getFlags() & ~FLAG_SHOW_ICON));
+        }
     }
 
     /**
@@ -143,7 +192,7 @@ public class WrapperPlayServerEntityEffect extends AbstractPacket {
      */
     @Nullable
     public WrappedFactorData getFactorData() {
-        return  this.handle.getModifier().withType(WrappedFactorData.HANDLE_TYPE, WrappedFactorData.CONVERTER).read(0);
+        return this.handle.getModifier().withType(WrappedFactorData.HANDLE_TYPE, WrappedFactorData.CONVERTER).read(0);
     }
 
     /**
@@ -156,7 +205,7 @@ public class WrapperPlayServerEntityEffect extends AbstractPacket {
     }
 
     public static class WrappedFactorData {
-        private static final Class<?> HANDLE_TYPE = MinecraftReflection.getMinecraftClass("world.effect.MobEffectInstance$FactorData","world.effect.MobEffect$a");
+        private static final Class<?> HANDLE_TYPE = MinecraftReflection.getMinecraftClass("world.effect.MobEffectInstance$FactorData", "world.effect.MobEffect$a");
         private static final EquivalentConverter<WrappedFactorData> CONVERTER = Converters.ignoreNull(AutoWrapper.wrap(WrappedFactorData.class, HANDLE_TYPE));
 
         private int paddingDuration;

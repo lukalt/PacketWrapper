@@ -6,6 +6,9 @@ import com.comphenix.protocol.events.PacketContainer;
 
 import java.util.UUID;
 
+/**
+ * Send by the client to the server if the player (in spectator mode) wants to teleport to a target player
+ */
 public class WrapperPlayClientSpectate extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Client.SPECTATE;
@@ -19,18 +22,18 @@ public class WrapperPlayClientSpectate extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'uuid'
+     * Retrieves the uuid of the target player
      *
-     * @return 'uuid'
+     * @return 'uuid' of target players
      */
     public UUID getUuid() {
         return this.handle.getUUIDs().read(0);
     }
 
     /**
-     * Sets the value of field 'uuid'
+     * Sets the uuid of the target player
      *
-     * @param value New value for field 'uuid'
+     * @param value uuid of target player
      */
     public void setUuid(UUID value) {
         this.handle.getUUIDs().write(0, value);

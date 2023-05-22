@@ -8,6 +8,9 @@ public class WrapperPlayServerGameStateChange extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.GAME_STATE_CHANGE;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerGameStateChange() {
         super(TYPE);
     }

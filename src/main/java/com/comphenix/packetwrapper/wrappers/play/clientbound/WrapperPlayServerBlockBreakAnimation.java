@@ -12,10 +12,17 @@ public class WrapperPlayServerBlockBreakAnimation extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.BLOCK_BREAK_ANIMATION;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerBlockBreakAnimation() {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerBlockBreakAnimation(PacketContainer packet) {
         super(packet, TYPE);
     }

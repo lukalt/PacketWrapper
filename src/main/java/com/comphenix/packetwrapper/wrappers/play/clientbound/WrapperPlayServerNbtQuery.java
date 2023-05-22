@@ -9,6 +9,9 @@ public class WrapperPlayServerNbtQuery extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.NBT_QUERY;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerNbtQuery() {
         super(TYPE);
     }

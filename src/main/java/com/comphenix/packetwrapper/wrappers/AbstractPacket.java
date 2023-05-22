@@ -92,4 +92,19 @@ public abstract class AbstractPacket {
     public void receivePacket(Player sender) {
         ProtocolLibrary.getProtocolManager().receiveClientPacket(sender, getHandle());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        AbstractPacket that = (AbstractPacket) o;
+
+        return java.util.Objects.equals(handle, that.handle);
+    }
+
+    @Override
+    public int hashCode() {
+        return handle != null ? handle.hashCode() : 0;
+    }
 }

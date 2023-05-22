@@ -9,6 +9,9 @@ public class WrapperPlayServerResourcePackSend extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.RESOURCE_PACK_SEND;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerResourcePackSend() {
         super(TYPE);
     }

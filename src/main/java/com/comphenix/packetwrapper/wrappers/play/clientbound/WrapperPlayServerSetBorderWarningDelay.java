@@ -8,6 +8,9 @@ public class WrapperPlayServerSetBorderWarningDelay extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.SET_BORDER_WARNING_DELAY;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerSetBorderWarningDelay() {
         super(TYPE);
     }

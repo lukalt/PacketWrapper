@@ -8,10 +8,17 @@ public class WrapperPlayServerAbilities extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.ABILITIES;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerAbilities() {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerAbilities(PacketContainer packet) {
         super(packet, TYPE);
     }

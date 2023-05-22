@@ -9,7 +9,6 @@ import com.comphenix.protocol.events.InternalStructure;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.utility.MinecraftReflection;
 import com.comphenix.protocol.wrappers.EnumWrappers.NativeGameMode;
-import net.minecraft.server.dedicated.DedicatedServer;
 import org.bukkit.World;
 
 import javax.annotation.Nullable;
@@ -19,6 +18,9 @@ public class WrapperPlayServerRespawn extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.RESPAWN;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerRespawn() {
         super(TYPE);
     }

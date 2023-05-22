@@ -7,7 +7,9 @@ import com.comphenix.protocol.events.InternalStructure;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.reflect.EquivalentConverter;
 import com.comphenix.protocol.reflect.StructureModifier;
+import com.comphenix.protocol.utility.MinecraftReflection;
 import com.comphenix.protocol.wrappers.BukkitConverters;
+import com.comphenix.protocol.wrappers.EnumWrappers;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import org.bukkit.inventory.ItemStack;
 
@@ -97,22 +99,40 @@ public class WrapperPlayClientWindowClick extends AbstractPacket {
 
     /**
      * Retrieves the value of field 'clickType'
-     * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
-     *
+     * @deprecated {Use {@link WrapperPlayClientWindowClick#getClickType()} instead}
      * @return 'clickType'
      */
+    @Deprecated
     public InternalStructure getClickTypeInternal() {
-        return this.handle.getStructures().read(0); // TODO: No specific modifier has been found for type class net.minecraft.world.inventory.ClickType Generic type: class net.minecraft.world.inventory.ClickType
+        return this.handle.getStructures().read(0);
     }
 
     /**
      * Sets the value of field 'clickType'
-     * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
+     * @deprecated {Use {@link WrapperPlayClientWindowClick#setClickType(WrappedClickType)} instead}
+     * @param value New value for field 'clickType'
+     */
+    @Deprecated
+    public void setClickType(InternalStructure value) {
+        this.handle.getStructures().write(0, value);
+    }
+
+    /**
+     * Retrieves the value of field 'clickType'
+     *
+     * @return 'clickType'
+     */
+    public WrappedClickType getClickType() {
+        return this.handle.getModifier().withType(CLICK_TYPE_CLASS, CLICK_TYPE_CONVERTER).read(0);
+    }
+
+    /**
+     * Sets the value of field 'clickType'
      *
      * @param value New value for field 'clickType'
      */
-    public void setClickType(InternalStructure value) {
-        this.handle.getStructures().write(0, value); // TODO: No specific modifier has been found for type class net.minecraft.world.inventory.ClickType Generic type: class net.minecraft.world.inventory.ClickType
+    public void setClickType(WrappedClickType value) {
+        this.handle.getModifier().withType(CLICK_TYPE_CLASS, CLICK_TYPE_CONVERTER).write(0, value);
     }
 
     /**
@@ -154,5 +174,18 @@ public class WrapperPlayClientWindowClick extends AbstractPacket {
     private <T> StructureModifier<Int2ObjectMap<T>> getInt2ObjectMaps(EquivalentConverter<T> valueConverter) {
         return this.handle.getModifier().withType(Int2ObjectMap.class, MoreConverters.getInt2ObjectMapConverter(valueConverter));
     }
+
+    private final static Class<?> CLICK_TYPE_CLASS = MinecraftReflection.getMinecraftClass("world.inventory.ClickType", "world.inventory.InventoryClickType");
+    private final static EquivalentConverter<WrappedClickType> CLICK_TYPE_CONVERTER = new EnumWrappers.IndexedEnumConverter<>(WrappedClickType.class, CLICK_TYPE_CLASS);
+    public enum WrappedClickType {
+        PICKUP,
+        QUICK_MOVE,
+        SWAP,
+        CLONE,
+        THROW,
+        QUICK_CRAFT,
+        PICKUP_ALL;
+    }
+
 
 }

@@ -8,6 +8,9 @@ public class WrapperPlayServerHurtAnimation extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.HURT_ANIMATION;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerHurtAnimation() {
         super(TYPE);
     }

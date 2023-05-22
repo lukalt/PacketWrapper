@@ -17,7 +17,6 @@ class WrapperPlayServerLookAtTest {
         WrapperPlayServerLookAt dummy = new WrapperPlayServerLookAt();
         dummy.setFromAnchor(WrapperPlayServerLookAt.Anchor.EYES);
         dummy.setToAnchor(WrapperPlayServerLookAt.Anchor.FEET);
-        System.out.println(dummy.getHandle().getHandle());
         assertEquals(WrapperPlayServerLookAt.Anchor.EYES, dummy.getFromAnchor());
         assertEquals(WrapperPlayServerLookAt.Anchor.FEET, dummy.getToAnchor());
     }

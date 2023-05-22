@@ -9,6 +9,9 @@ public class WrapperPlayServerKickDisconnect extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.KICK_DISCONNECT;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerKickDisconnect() {
         super(TYPE);
     }

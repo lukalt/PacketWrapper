@@ -17,6 +17,9 @@ import java.util.UUID;
  */
 public class WrapperPlayServerNamedEntitySpawn extends AbstractPacket {
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public static final PacketType TYPE = PacketType.Play.Server.NAMED_ENTITY_SPAWN;
 
     public WrapperPlayServerNamedEntitySpawn() {

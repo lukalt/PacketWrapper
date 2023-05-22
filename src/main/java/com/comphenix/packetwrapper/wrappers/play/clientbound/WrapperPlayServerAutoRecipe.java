@@ -9,10 +9,17 @@ public class WrapperPlayServerAutoRecipe extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.AUTO_RECIPE;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerAutoRecipe() {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerAutoRecipe(PacketContainer packet) {
         super(packet, TYPE);
     }

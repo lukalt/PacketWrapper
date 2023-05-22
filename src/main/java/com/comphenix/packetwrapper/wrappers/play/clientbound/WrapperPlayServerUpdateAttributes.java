@@ -12,6 +12,9 @@ public class WrapperPlayServerUpdateAttributes extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.UPDATE_ATTRIBUTES;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerUpdateAttributes() {
         super(TYPE);
     }

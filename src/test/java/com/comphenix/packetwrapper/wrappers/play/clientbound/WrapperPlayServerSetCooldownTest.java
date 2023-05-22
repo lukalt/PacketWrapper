@@ -1,4 +1,4 @@
-package com.comphenix.packetwrapper.wrappers.play.serverbound;
+package com.comphenix.packetwrapper.wrappers.play.clientbound;
 
 import com.comphenix.packetwrapper.BaseTestInitialization;
 import com.comphenix.packetwrapper.wrappers.play.clientbound.WrapperPlayServerSetCooldown;

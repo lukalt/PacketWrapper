@@ -30,5 +30,16 @@ class WrapperPlayServerEntityEffectTest {
         dummy.setFactorData(factorData);
         assertEquals(factorData, dummy.getFactorData());
         assertEquals(PotionEffectType.ABSORPTION, dummy.getEffect());
+
+        dummy.setFlags((byte) (WrapperPlayServerEntityEffect.FLAG_SHOW_PARTICLE | WrapperPlayServerEntityEffect.FLAG_AMBIENT | WrapperPlayServerEntityEffect.FLAG_SHOW_ICON));
+        assertTrue(dummy.isAmbient());
+        assertTrue(dummy.isShowIcon());
+        assertTrue(dummy.isShowParticles());
+        dummy.setAmbient(false);
+        assertEquals((byte) (WrapperPlayServerEntityEffect.FLAG_SHOW_PARTICLE | WrapperPlayServerEntityEffect.FLAG_SHOW_ICON), dummy.getFlags());
+        dummy.setShowIcon(false);
+        dummy.setShowParticles(false);
+        assertEquals((byte) 0, dummy.getFlags());
+
     }
 }

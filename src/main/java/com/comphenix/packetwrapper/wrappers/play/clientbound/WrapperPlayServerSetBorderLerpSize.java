@@ -8,6 +8,9 @@ public class WrapperPlayServerSetBorderLerpSize extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.SET_BORDER_LERP_SIZE;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerSetBorderLerpSize() {
         super(TYPE);
     }

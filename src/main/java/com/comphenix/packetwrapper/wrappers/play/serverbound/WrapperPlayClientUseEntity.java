@@ -4,6 +4,8 @@ import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.InternalStructure;
 import com.comphenix.protocol.events.PacketContainer;
+import com.comphenix.protocol.wrappers.WrappedEnumEntityUseAction;
+import org.bukkit.entity.Interaction;
 
 public class WrapperPlayClientUseEntity extends AbstractPacket {
 
@@ -38,21 +40,39 @@ public class WrapperPlayClientUseEntity extends AbstractPacket {
     /**
      * Retrieves the value of field 'action'
      * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
-     *
+     * @deprecated {Use {@link WrapperPlayClientUseEntity#getAction()} instead}
      * @return 'action'
      */
     public InternalStructure getActionInternal() {
-        return this.handle.getStructures().read(0); // TODO: No specific modifier has been found for type interface net.minecraft.network.protocol.game.ServerboundInteractPacket$Action Generic type: interface net.minecraft.network.protocol.game.ServerboundInteractPacket$Action
+        return this.handle.getStructures().read(0);
     }
 
     /**
      * Sets the value of field 'action'
      * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
-     *
+     * @deprecated {Use {@link WrapperPlayClientUseEntity#setAction(WrappedEnumEntityUseAction)} instead}
      * @param value New value for field 'action'
      */
     public void setAction(InternalStructure value) {
-        this.handle.getStructures().write(0, value); // TODO: No specific modifier has been found for type interface net.minecraft.network.protocol.game.ServerboundInteractPacket$Action Generic type: interface net.minecraft.network.protocol.game.ServerboundInteractPacket$Action
+        this.handle.getStructures().write(0, value);
+    }
+
+    /**
+     * Retrieves the value of field 'action'
+     *
+     * @return 'action'
+     */
+    public WrappedEnumEntityUseAction getAction() {
+        return this.handle.getEnumEntityUseActions().read(0);
+    }
+
+    /**
+     * Sets the value of field 'action'
+     *
+     * @param value New value for field 'action'
+     */
+    public void setAction(WrappedEnumEntityUseAction value) {
+        this.handle.getEnumEntityUseActions().write(0, value);
     }
 
     /**
@@ -72,5 +92,10 @@ public class WrapperPlayClientUseEntity extends AbstractPacket {
     public void setUsingSecondaryAction(boolean value) {
         this.handle.getBooleans().write(0, value);
     }
+
+    public interface WrappedUseAction {
+        WrappedEnumEntityUseAction getType();
+    }
+
 
 }

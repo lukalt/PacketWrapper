@@ -4,10 +4,16 @@ import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
 
+/**
+ * Send by server to client to close a container with provided id
+ */
 public class WrapperPlayServerCloseWindow extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.CLOSE_WINDOW;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerCloseWindow() {
         super(TYPE);
     }
@@ -17,7 +23,7 @@ public class WrapperPlayServerCloseWindow extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'containerId'
+     * Gets the id of the container to close
      *
      * @return 'containerId'
      */
@@ -26,7 +32,7 @@ public class WrapperPlayServerCloseWindow extends AbstractPacket {
     }
 
     /**
-     * Sets the value of field 'containerId'
+     * Sets the id of the container to close
      *
      * @param value New value for field 'containerId'
      */

@@ -5,9 +5,13 @@ import com.comphenix.packetwrapper.wrappers.data.Vector3I;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.InternalStructure;
 import com.comphenix.protocol.events.PacketContainer;
+import com.comphenix.protocol.reflect.EquivalentConverter;
 import com.comphenix.protocol.utility.MinecraftReflection;
 import com.comphenix.protocol.wrappers.BlockPosition;
 import com.comphenix.protocol.wrappers.EnumWrappers;
+import org.bukkit.Rotation;
+import org.bukkit.block.structure.Mirror;
+import org.bukkit.block.structure.StructureRotation;
 import org.bukkit.block.structure.UsageMode;
 
 public class WrapperPlayClientStruct extends AbstractPacket {
@@ -16,6 +20,11 @@ public class WrapperPlayClientStruct extends AbstractPacket {
     private static final Class<?> STRUCTURE_MODE_CLASS = MinecraftReflection.getNullableNMS("world.level.block.state.properties.StructureMode", "world.level.block.state.properties.BlockPropertyStructureMode");
     private static final Class<?> STRUCTURE_MODE_UPDATE_TYPE_CLASS = MinecraftReflection.getNullableNMS("world.level.block.entity.StructureBlockEntity$UpdateType", "world.level.block.entity.TileEntityStructure$UpdateType");
 
+
+    private final static Class<?> MIRROR_CLASS = MinecraftReflection.getMinecraftClass("world.level.block.Mirror", "world.level.block.EnumBlockMirror");
+    private final static EquivalentConverter<Mirror> MIRROR_ENUM_CONVERTER = new EnumWrappers.IndexedEnumConverter<>(Mirror.class, MIRROR_CLASS);
+    private final static Class<?> ROTATION_CLASS = MinecraftReflection.getMinecraftClass("world.level.block.Rotation", "world.level.block.EnumBlockRotation");
+    private final static EquivalentConverter<StructureRotation> ROTATION_ENUM_CONVERTER = new EnumWrappers.IndexedEnumConverter<>(StructureRotation.class, ROTATION_CLASS);
 
     public WrapperPlayClientStruct() {
         super(TYPE);
@@ -136,11 +145,33 @@ public class WrapperPlayClientStruct extends AbstractPacket {
     /**
      * Retrieves the value of field 'mirror'
      * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
+     * @deprecated {Use {@link WrapperPlayClientStruct#getMirror()} instead}
+     * @return 'mirror'
+     */
+    @Deprecated
+    public InternalStructure getMirrorInternal() {
+        return this.handle.getStructures().read(6);
+    }
+
+    /**
+     * Sets the value of field 'mirror'
+     * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
+     * @deprecated {Use {@link WrapperPlayClientStruct#setMirror(Mirror)} instead}
+     * @param value New value for field 'mirror'
+     */
+    @Deprecated
+    public void setMirrorInternal(InternalStructure value) {
+        this.handle.getStructures().write(6, value);
+    }
+
+    /**
+     * Retrieves the value of field 'mirror'
+     * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
      *
      * @return 'mirror'
      */
-    public InternalStructure getMirrorInternal() {
-        return this.handle.getStructures().read(6); // TODO: No specific modifier has been found for type class net.minecraft.world.level.block.Mirror Generic type: class net.minecraft.world.level.block.Mirror
+    public Mirror getMirror() {
+        return this.handle.getModifier().withType(MIRROR_CLASS, MIRROR_ENUM_CONVERTER).read(0);
     }
 
     /**
@@ -149,8 +180,30 @@ public class WrapperPlayClientStruct extends AbstractPacket {
      *
      * @param value New value for field 'mirror'
      */
-    public void setMirrorInternal(InternalStructure value) {
-        this.handle.getStructures().write(6, value); // TODO: No specific modifier has been found for type class net.minecraft.world.level.block.Mirror Generic type: class net.minecraft.world.level.block.Mirror
+    public void setMirror(Mirror value) {
+        this.handle.getModifier().withType(MIRROR_CLASS, MIRROR_ENUM_CONVERTER).write(0, value);
+    }
+
+    /**
+     * Retrieves the value of field 'rotation'
+     * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
+     * @deprecated Use {@link WrapperPlayClientStruct#getRotation()} instead
+     * @return 'rotation'
+     */
+    @Deprecated
+    public InternalStructure getRotationInternal() {
+        return this.handle.getStructures().read(7);
+    }
+
+    /**
+     * Sets the value of field 'rotation'
+     * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
+     * @deprecated Use {@link WrapperPlayClientStruct#setRotation(StructureRotation)} instead
+     * @param value New value for field 'rotation'
+     */
+    @Deprecated
+    public void setRotationInternal(InternalStructure value) {
+        this.handle.getStructures().write(7, value);
     }
 
     /**
@@ -159,8 +212,8 @@ public class WrapperPlayClientStruct extends AbstractPacket {
      *
      * @return 'rotation'
      */
-    public InternalStructure getRotationInternal() {
-        return this.handle.getStructures().read(7); // TODO: No specific modifier has been found for type class net.minecraft.world.level.block.Rotation Generic type: class net.minecraft.world.level.block.Rotation
+    public StructureRotation getRotation() {
+        return this.handle.getModifier().withType(ROTATION_CLASS, ROTATION_ENUM_CONVERTER).read(0);
     }
 
     /**
@@ -169,8 +222,8 @@ public class WrapperPlayClientStruct extends AbstractPacket {
      *
      * @param value New value for field 'rotation'
      */
-    public void setRotationInternal(InternalStructure value) {
-        this.handle.getStructures().write(7, value); // TODO: No specific modifier has been found for type class net.minecraft.world.level.block.Rotation Generic type: class net.minecraft.world.level.block.Rotation
+    public void setRotation(StructureRotation value) {
+        this.handle.getModifier().withType(ROTATION_CLASS, ROTATION_ENUM_CONVERTER).write(0, value);
     }
 
     /**

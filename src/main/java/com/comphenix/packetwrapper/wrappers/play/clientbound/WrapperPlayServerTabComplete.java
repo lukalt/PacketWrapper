@@ -19,6 +19,9 @@ public class WrapperPlayServerTabComplete extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.TAB_COMPLETE;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerTabComplete() {
         super(TYPE);
     }
@@ -47,8 +50,7 @@ public class WrapperPlayServerTabComplete extends AbstractPacket {
 
     /**
      * Retrieves the value of field 'suggestions'
-     * @deprecated
-     * @link getSuggestions
+     * @deprecated {Use {@link WrapperPlayServerTabComplete#getSuggestions()} instead}
      * @return 'suggestions'
      */
     @Deprecated
@@ -58,8 +60,7 @@ public class WrapperPlayServerTabComplete extends AbstractPacket {
 
     /**
      * Sets the value of field 'suggestions'
-     * @deprecated
-     * @link setSuggestions
+     * @deprecated {Use {@link WrapperPlayServerTabComplete#setSuggestions(WrappedSuggestions)} instead}
      * @param value New value for field 'suggestions'
      */
     @Deprecated

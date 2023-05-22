@@ -8,6 +8,9 @@ public class WrapperPlayServerClearTitles extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.CLEAR_TITLES;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerClearTitles() {
         super(TYPE);
     }

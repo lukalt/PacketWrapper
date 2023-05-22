@@ -11,10 +11,17 @@ public class WrapperPlayServerBlockChangedAck extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.BLOCK_CHANGED_ACK;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerBlockChangedAck() {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerBlockChangedAck(PacketContainer packet) {
         super(packet, TYPE);
     }

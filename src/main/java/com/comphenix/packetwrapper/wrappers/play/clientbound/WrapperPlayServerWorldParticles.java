@@ -9,6 +9,9 @@ public class WrapperPlayServerWorldParticles extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.WORLD_PARTICLES;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerWorldParticles() {
         super(TYPE);
     }

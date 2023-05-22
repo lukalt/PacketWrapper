@@ -6,10 +6,16 @@ import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.wrappers.Converters;
 import it.unimi.dsi.fastutil.ints.IntList;
 
+/**
+ * Sent by the server to client to remove one or more entities.
+ */
 public class WrapperPlayServerEntityDestroy extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.ENTITY_DESTROY;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerEntityDestroy() {
         super(TYPE);
     }
@@ -19,16 +25,16 @@ public class WrapperPlayServerEntityDestroy extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'entityIds'
+     * Gets a list of entity ids to remove
      *
-     * @return 'entityIds'
+     * @return 'entityIds' to remove
      */
     public IntList getEntityIds() {
         return this.handle.getModifier().withType(IntList.class, Converters.passthrough(IntList.class)).read(0);
     }
 
     /**
-     * Sets the value of field 'entityIds'
+     * Sets the list of entity ids to remove
      *
      * @param value New value for field 'entityIds'
      */

@@ -8,6 +8,9 @@ public class WrapperPlayServerEntityTeleport extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.ENTITY_TELEPORT;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerEntityTeleport() {
         super(TYPE);
     }

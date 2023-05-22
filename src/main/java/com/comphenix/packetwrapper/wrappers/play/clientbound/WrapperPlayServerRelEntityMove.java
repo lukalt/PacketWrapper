@@ -8,6 +8,9 @@ public class WrapperPlayServerRelEntityMove extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.REL_ENTITY_MOVE;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerRelEntityMove() {
         super(TYPE);
     }

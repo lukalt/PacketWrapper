@@ -11,6 +11,9 @@ public class WrapperPlayServerDisguisedChat extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.DISGUISED_CHAT;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerDisguisedChat() {
         super(TYPE);
     }

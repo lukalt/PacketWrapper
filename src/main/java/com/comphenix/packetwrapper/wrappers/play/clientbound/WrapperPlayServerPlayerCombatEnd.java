@@ -4,10 +4,16 @@ import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
 
+/**
+ * Unused packet
+ */
 public class WrapperPlayServerPlayerCombatEnd extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.PLAYER_COMBAT_END;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerPlayerCombatEnd() {
         super(TYPE);
     }

@@ -7,6 +7,11 @@ import com.comphenix.protocol.utility.MinecraftReflection;
 import com.comphenix.protocol.wrappers.EnumWrappers;
 import com.comphenix.protocol.wrappers.EnumWrappers.ChatVisibility;
 
+import java.util.EnumSet;
+
+/**
+ * Send by client to server after login or when client settings change.
+ */
 public class WrapperPlayClientSettings extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Client.SETTINGS;
@@ -21,7 +26,7 @@ public class WrapperPlayClientSettings extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'language'
+     * Gets the language selected in the client, e.g. "de_DE" or "en_US"
      *
      * @return 'language'
      */
@@ -30,7 +35,7 @@ public class WrapperPlayClientSettings extends AbstractPacket {
     }
 
     /**
-     * Sets the value of field 'language'
+     * Sets the language selected in the client, e.g. "de_DE" or "en_US"
      *
      * @param value New value for field 'language'
      */
@@ -57,7 +62,7 @@ public class WrapperPlayClientSettings extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'chatVisibility'
+     * Retrieves the chat visibility
      *
      * @return 'chatVisibility'
      */
@@ -66,7 +71,7 @@ public class WrapperPlayClientSettings extends AbstractPacket {
     }
 
     /**
-     * Sets the value of field 'chatVisibility'
+     * Sets the chat visibility
      *
      * @param value New value for field 'chatVisibility'
      */
@@ -75,7 +80,7 @@ public class WrapperPlayClientSettings extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'chatColors'
+     * Gets whether the client renders chat colors
      *
      * @return 'chatColors'
      */
@@ -84,7 +89,7 @@ public class WrapperPlayClientSettings extends AbstractPacket {
     }
 
     /**
-     * Sets the value of field 'chatColors'
+     * Sets whether the client renders chat colors
      *
      * @param value New value for field 'chatColors'
      */
@@ -93,7 +98,14 @@ public class WrapperPlayClientSettings extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'modelCustomisation'
+     * Retrieves a bit mask for displayed skin parts
+     * Bit 0 (0x01): Cape enabled
+     * Bit 1 (0x02): Jacket enabled
+     * Bit 2 (0x04): Left Sleeve enabled
+     * Bit 3 (0x08): Right Sleeve enabled
+     * Bit 4 (0x10): Left Pants Leg enabled
+     * Bit 5 (0x20): Right Pants Leg enabled
+     * Bit 6 (0x40): Hat enabled
      *
      * @return 'modelCustomisation'
      */
@@ -102,7 +114,14 @@ public class WrapperPlayClientSettings extends AbstractPacket {
     }
 
     /**
-     * Sets the value of field 'modelCustomisation'
+     * Sets the bit mask for displayed skin parts
+     * Bit 0 (0x01): Cape enabled
+     * Bit 1 (0x02): Jacket enabled
+     * Bit 2 (0x04): Left Sleeve enabled
+     * Bit 3 (0x08): Right Sleeve enabled
+     * Bit 4 (0x10): Left Pants Leg enabled
+     * Bit 5 (0x20): Right Pants Leg enabled
+     * Bit 6 (0x40): Hat enabled
      *
      * @param value New value for field 'modelCustomisation'
      */
@@ -111,7 +130,7 @@ public class WrapperPlayClientSettings extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'mainHand'
+     * Retrieves the main arm of the client
      *
      * @return 'mainHand'
      */
@@ -120,7 +139,7 @@ public class WrapperPlayClientSettings extends AbstractPacket {
     }
 
     /**
-     * Sets the value of field 'mainHand'
+     * Sets the main arm of the client
      *
      * @param value New value for field 'mainHand'
      */
@@ -129,7 +148,7 @@ public class WrapperPlayClientSettings extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'textFilteringEnabled'
+     * Gets whether filtering of content is enabled on client side
      *
      * @return 'textFilteringEnabled'
      */
@@ -138,7 +157,7 @@ public class WrapperPlayClientSettings extends AbstractPacket {
     }
 
     /**
-     * Sets the value of field 'textFilteringEnabled'
+     * Sets whether filtering of content is enabled on client side
      *
      * @param value New value for field 'textFilteringEnabled'
      */
@@ -147,7 +166,7 @@ public class WrapperPlayClientSettings extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'allowsListing'
+     * Gets whether the client wants to appear in the server's public player list (player sample in server ping)
      *
      * @return 'allowsListing'
      */
@@ -156,7 +175,7 @@ public class WrapperPlayClientSettings extends AbstractPacket {
     }
 
     /**
-     * Sets the value of field 'allowsListing'
+     * Sets whether the client wants to appear in the server's public player list (player sample in server ping)
      *
      * @param value New value for field 'allowsListing'
      */
@@ -164,8 +183,17 @@ public class WrapperPlayClientSettings extends AbstractPacket {
         this.handle.getBooleans().write(2, value);
     }
 
+    /**
+     * Enum representing the arm of a human
+     */
     public enum HumanoidArm {
+        /**
+         * Left arm
+         */
         LEFT,
+        /**
+         * Right arm
+         */
         RIGHT
     }
 

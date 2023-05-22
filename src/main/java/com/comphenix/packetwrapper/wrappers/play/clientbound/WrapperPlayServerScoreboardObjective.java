@@ -13,6 +13,9 @@ public class WrapperPlayServerScoreboardObjective extends AbstractPacket {
     public static final PacketType TYPE = PacketType.Play.Server.SCOREBOARD_OBJECTIVE;
     private static final Class<?> ACTION_CLASS = MinecraftReflection.getNullableNMS("world.scores.criteria.ObjectiveCriteria$RenderType", "world.scores.criteria.IScoreboardCriteria$EnumScoreboardHealthDisplay");
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerScoreboardObjective() {
         super(TYPE);
     }

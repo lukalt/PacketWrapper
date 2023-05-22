@@ -9,6 +9,9 @@ public class WrapperPlayServerOpenSignEditor extends AbstractPacket {
 
     public static final PacketType TYPE = PacketType.Play.Server.OPEN_SIGN_EDITOR;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerOpenSignEditor() {
         super(TYPE);
     }
