@@ -4,14 +4,14 @@
 'ISO-8859-1'
 -protected
 -sourcepath
-'G:/projects/PacketWrapper/src/main/java'
+'C:/Users/lukas/Documents/projects/PacketWrapper/src/main/java'
 -author
 -bottom
 'Copyright © 2012–2023                         Comphenix and dmulloy2. Licensed under the GNU GPL v2.'
 -charset
 'UTF-8'
 -d
-'G:/projects/PacketWrapper/javadocs/apidocs'
+'C:/Users/lukas/Documents/projects/PacketWrapper/javadocs/apidocs'
 -docencoding
 'UTF-8'
 -doctitle
