@@ -1,9 +1,12 @@
 package com.comphenix.packetwrapper.wrappers.play.clientbound;
 
+import com.comphenix.packetwrapper.util.ReflectiveAdventureComponentConverter;
+import com.comphenix.packetwrapper.util.UtilityMethod;
 import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.InternalStructure;
 import com.comphenix.protocol.events.PacketContainer;
+import com.comphenix.protocol.wrappers.WrappedChatComponent;
 
 public class WrapperPlayServerSystemChat extends AbstractPacket {
 
@@ -21,41 +24,51 @@ public class WrapperPlayServerSystemChat extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'adventure$content'
-     * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
+     * Retrieves the message to be sent encoded as a JSON string
      *
-     * @return 'adventure$content'
-     */
-    public InternalStructure getAdventure$contentInternal() {
-        return this.handle.getStructures().read(0); // TODO: No specific modifier has been found for type interface net.kyori.adventure.text.Component Generic type: interface net.kyori.adventure.text.Component
-    }
-
-    /**
-     * Sets the value of field 'adventure$content'
-     * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
-     *
-     * @param value New value for field 'adventure$content'
-     */
-    public void setAdventure$contentInternal(InternalStructure value) {
-        this.handle.getStructures().write(0, value); // TODO: No specific modifier has been found for type interface net.kyori.adventure.text.Component Generic type: interface net.kyori.adventure.text.Component
-    }
-
-    /**
-     * Retrieves the value of field 'content'
-     *
-     * @return 'content'
+     * @return 'content' as JSON string
      */
     public String getContent() {
-        return this.handle.getStrings().read(0);
+        String read = this.handle.getStrings().read(0);
+        if(read != null) {
+            return read;
+        }
+        return ReflectiveAdventureComponentConverter.componentToString(this.handle.getStructures().read(0).getHandle());
     }
 
     /**
-     * Sets the value of field 'content'
+     * Sets the message content as a JSON encoded string
      *
      * @param value New value for field 'content'
      */
     public void setContent(String value) {
+        if(isUsingPaper()) {
+            // We are using paper. Remove adventure component
+            this.handle.getModifier().write(0, null);
+        }
         this.handle.getStrings().write(0, value);
+    }
+
+    /**
+     * Gets the content of the system message as a chat component
+     * @return content of the system message
+     */
+    @UtilityMethod
+    public WrappedChatComponent getContentComponent() {
+        return WrappedChatComponent.fromJson(this.getContent());
+    }
+
+    /**
+     * Sets the content of the system message
+     * @param component content of the system message
+     */
+    @UtilityMethod
+    public void setContentComponent(WrappedChatComponent component) {
+        this.setContent(component.getJson());
+    }
+
+    private boolean isUsingPaper() {
+        return !(this.handle.getModifier().read(0) instanceof String);
     }
 
     /**

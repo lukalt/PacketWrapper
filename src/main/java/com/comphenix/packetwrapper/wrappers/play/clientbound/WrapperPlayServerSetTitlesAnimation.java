@@ -20,7 +20,7 @@ public class WrapperPlayServerSetTitlesAnimation extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'fadeIn'
+     * Retrieves the number of ticks the title is faded in
      *
      * @return 'fadeIn'
      */
@@ -29,7 +29,7 @@ public class WrapperPlayServerSetTitlesAnimation extends AbstractPacket {
     }
 
     /**
-     * Sets the value of field 'fadeIn'
+     * Sets the number of ticks the title is faded in
      *
      * @param value New value for field 'fadeIn'
      */
@@ -38,7 +38,7 @@ public class WrapperPlayServerSetTitlesAnimation extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'stay'
+     * Retrieves the number of ticks the title stays on screen
      *
      * @return 'stay'
      */
@@ -47,7 +47,7 @@ public class WrapperPlayServerSetTitlesAnimation extends AbstractPacket {
     }
 
     /**
-     * Sets the value of field 'stay'
+     * Sets the number of ticks the title stays on screen
      *
      * @param value New value for field 'stay'
      */
@@ -56,7 +56,7 @@ public class WrapperPlayServerSetTitlesAnimation extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'fadeOut'
+     * Retrieves the number of ticks to fade out the title
      *
      * @return 'fadeOut'
      */
@@ -65,7 +65,7 @@ public class WrapperPlayServerSetTitlesAnimation extends AbstractPacket {
     }
 
     /**
-     * Sets the value of field 'fadeOut'
+     * Sets the number of ticks to fade out the title
      *
      * @param value New value for field 'fadeOut'
      */
