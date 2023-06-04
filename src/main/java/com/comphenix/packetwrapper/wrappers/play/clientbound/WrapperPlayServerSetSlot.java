@@ -5,8 +5,14 @@ import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
 import org.bukkit.inventory.ItemStack;
 
+/**
+ * Send by server to client when an item at a specific slot in a container should be updated
+ */
 public class WrapperPlayServerSetSlot extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.SET_SLOT;
 
     /**
@@ -16,12 +22,17 @@ public class WrapperPlayServerSetSlot extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerSetSlot(PacketContainer packet) {
         super(packet, TYPE);
     }
 
     /**
-     * Retrieves the value of field 'containerId'
+     * Retrieves the id of the container to update
      *
      * @return 'containerId'
      */
@@ -30,7 +41,7 @@ public class WrapperPlayServerSetSlot extends AbstractPacket {
     }
 
     /**
-     * Sets the value of field 'containerId'
+     * Sets the id of the container to update
      *
      * @param value New value for field 'containerId'
      */
@@ -57,7 +68,7 @@ public class WrapperPlayServerSetSlot extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'slot'
+     * Retrieves the index of the slot that should be updated
      *
      * @return 'slot'
      */
@@ -66,7 +77,7 @@ public class WrapperPlayServerSetSlot extends AbstractPacket {
     }
 
     /**
-     * Sets the value of field 'slot'
+     * Sets the index of the slot that should be updated
      *
      * @param value New value for field 'slot'
      */

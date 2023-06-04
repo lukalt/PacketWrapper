@@ -9,6 +9,9 @@ import com.comphenix.protocol.events.PacketContainer;
  */
 public class WrapperPlayServerCloseWindow extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.CLOSE_WINDOW;
 
     /**

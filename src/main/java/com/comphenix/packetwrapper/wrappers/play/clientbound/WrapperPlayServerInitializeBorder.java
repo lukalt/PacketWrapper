@@ -6,6 +6,9 @@ import com.comphenix.protocol.events.PacketContainer;
 
 public class WrapperPlayServerInitializeBorder extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.INITIALIZE_BORDER;
 
     /**
@@ -15,6 +18,11 @@ public class WrapperPlayServerInitializeBorder extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerInitializeBorder(PacketContainer packet) {
         super(packet, TYPE);
     }

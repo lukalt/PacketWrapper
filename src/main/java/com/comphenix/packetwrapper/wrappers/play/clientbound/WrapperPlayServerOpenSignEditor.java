@@ -7,6 +7,9 @@ import com.comphenix.protocol.wrappers.BlockPosition;
 
 public class WrapperPlayServerOpenSignEditor extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.OPEN_SIGN_EDITOR;
 
     /**

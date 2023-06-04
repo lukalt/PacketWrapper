@@ -25,6 +25,9 @@ import java.util.UUID;
  */
 public class WrapperPlayServerBoss extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.BOSS;
 
     private static final Class<?> BAR_COLOR_CLASS = MinecraftReflection.getMinecraftClass("world.BossEvent$BossBarColor", "world.BossBattle$BarColor");
@@ -83,6 +86,7 @@ public class WrapperPlayServerBoss extends AbstractPacket {
 
     /**
      * Constructors a new wrapper for the specified packet
+     *
      * @param packet the packet to wrap
      */
     public WrapperPlayServerBoss(PacketContainer packet) {
@@ -218,6 +222,7 @@ public class WrapperPlayServerBoss extends AbstractPacket {
 
         /**
          * Gets the text of the boss bar
+         *
          * @return text of boss bar
          */
         public WrappedChatComponent getName() {
@@ -226,6 +231,7 @@ public class WrapperPlayServerBoss extends AbstractPacket {
 
         /**
          * Sets the text of the boss bar
+         *
          * @param name new boss bar text
          */
         public void setName(WrappedChatComponent name) {
@@ -234,6 +240,7 @@ public class WrapperPlayServerBoss extends AbstractPacket {
 
         /**
          * Gets the progress/health of the boss bar
+         *
          * @return progress in range between 0.0 and 1.0 inclusive
          */
         public float getProgress() {
@@ -242,6 +249,7 @@ public class WrapperPlayServerBoss extends AbstractPacket {
 
         /**
          * Sets the progress/health of the boss bar
+         *
          * @param progress progress in range between 0.0 and 1.0 inclusive
          */
         public void setProgress(float progress) {
@@ -250,6 +258,7 @@ public class WrapperPlayServerBoss extends AbstractPacket {
 
         /**
          * Gets the color of the boss bar
+         *
          * @return color of boss bar
          */
         public BarColor getColor() {
@@ -258,6 +267,7 @@ public class WrapperPlayServerBoss extends AbstractPacket {
 
         /**
          * Sets the color of the boss bar
+         *
          * @param color new color
          */
         public void setColor(BarColor color) {
@@ -266,6 +276,7 @@ public class WrapperPlayServerBoss extends AbstractPacket {
 
         /**
          * Gets the overlay type
+         *
          * @return overlay type
          */
         public BarStyle getOverlay() {
@@ -411,6 +422,7 @@ public class WrapperPlayServerBoss extends AbstractPacket {
 
         /**
          * Gets the progress
+         *
          * @return progress ranged 0.0 to 1.0 inclusive
          */
         public float getProgress() {
@@ -419,6 +431,7 @@ public class WrapperPlayServerBoss extends AbstractPacket {
 
         /**
          * Sets the progress
+         *
          * @param progress ranged 0.0 to 1.0 inclusive
          */
         public void setProgress(float progress) {

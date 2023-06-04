@@ -13,6 +13,9 @@ import java.util.UUID;
  */
 public class WrapperPlayServerPlayerInfoRemove extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.PLAYER_INFO_REMOVE;
 
     /**

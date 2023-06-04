@@ -7,6 +7,9 @@ import com.comphenix.protocol.wrappers.EnumWrappers.ScoreboardAction;
 
 public class WrapperPlayServerScoreboardScore extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.SCOREBOARD_SCORE;
 
     /**
@@ -16,6 +19,11 @@ public class WrapperPlayServerScoreboardScore extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerScoreboardScore(PacketContainer packet) {
         super(packet, TYPE);
     }

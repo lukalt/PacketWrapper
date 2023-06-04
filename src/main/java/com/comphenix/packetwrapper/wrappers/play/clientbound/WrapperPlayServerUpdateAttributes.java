@@ -10,6 +10,9 @@ import java.util.List;
 
 public class WrapperPlayServerUpdateAttributes extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.UPDATE_ATTRIBUTES;
 
     /**
@@ -19,6 +22,11 @@ public class WrapperPlayServerUpdateAttributes extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerUpdateAttributes(PacketContainer packet) {
         super(packet, TYPE);
     }

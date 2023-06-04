@@ -12,6 +12,9 @@ import java.util.List;
 
 public class WrapperPlayServerEntityEquipment extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.ENTITY_EQUIPMENT;
 
     /**
@@ -49,7 +52,8 @@ public class WrapperPlayServerEntityEquipment extends AbstractPacket {
      * @return 'slots'
      */
     public List<Pair<EnumWrappers.ItemSlot, ItemStack>> getSlots() {
-        return this.handle.getLists(BukkitConverters.getPairConverter(EnumWrappers.getItemSlotConverter(), BukkitConverters.getItemStackConverter())).read(0);   }
+        return this.handle.getLists(BukkitConverters.getPairConverter(EnumWrappers.getItemSlotConverter(), BukkitConverters.getItemStackConverter())).read(0);
+    }
 
     /**
      * Sets the value of field 'slots'

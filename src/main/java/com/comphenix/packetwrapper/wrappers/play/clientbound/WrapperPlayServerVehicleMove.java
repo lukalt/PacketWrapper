@@ -6,6 +6,9 @@ import com.comphenix.protocol.events.PacketContainer;
 
 public class WrapperPlayServerVehicleMove extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.VEHICLE_MOVE;
 
     /**
@@ -15,6 +18,11 @@ public class WrapperPlayServerVehicleMove extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerVehicleMove(PacketContainer packet) {
         super(packet, TYPE);
     }

@@ -8,6 +8,9 @@ import com.comphenix.protocol.events.PacketContainer;
 
 public class WrapperPlayServerEntityHeadRotation extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.ENTITY_HEAD_ROTATION;
 
     /**
@@ -50,6 +53,7 @@ public class WrapperPlayServerEntityHeadRotation extends AbstractPacket {
 
     /**
      * Gets the rotation of the head in degrees between 0.0 deg and 1.0 deg.
+     *
      * @return head rotation in degree
      */
     @UtilityMethod
@@ -68,6 +72,7 @@ public class WrapperPlayServerEntityHeadRotation extends AbstractPacket {
 
     /**
      * Sets the rotation of the head in degrees between 0.0 deg and 1.0 deg.
+     *
      * @param newAngle rotation of head in degree
      */
     @UtilityMethod

@@ -17,6 +17,9 @@ import java.util.Objects;
 
 public class WrapperPlayServerTabComplete extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.TAB_COMPLETE;
 
     /**
@@ -26,6 +29,11 @@ public class WrapperPlayServerTabComplete extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerTabComplete(PacketContainer packet) {
         super(packet, TYPE);
     }
@@ -50,8 +58,9 @@ public class WrapperPlayServerTabComplete extends AbstractPacket {
 
     /**
      * Retrieves the value of field 'suggestions'
-     * @deprecated {Use {@link WrapperPlayServerTabComplete#getSuggestions()} instead}
+     *
      * @return 'suggestions'
+     * @deprecated {Use {@link WrapperPlayServerTabComplete#getSuggestions()} instead}
      */
     @Deprecated
     public InternalStructure getSuggestionsInternal() {
@@ -60,8 +69,9 @@ public class WrapperPlayServerTabComplete extends AbstractPacket {
 
     /**
      * Sets the value of field 'suggestions'
-     * @deprecated {Use {@link WrapperPlayServerTabComplete#setSuggestions(WrappedSuggestions)} instead}
+     *
      * @param value New value for field 'suggestions'
+     * @deprecated {Use {@link WrapperPlayServerTabComplete#setSuggestions(WrappedSuggestions)} instead}
      */
     @Deprecated
     public void setSuggestionsInternal(InternalStructure value) {
@@ -147,7 +157,7 @@ public class WrapperPlayServerTabComplete extends AbstractPacket {
     public static class WrappedSuggestions {
         public static final Class<?> HANDLE_TYPE = MinecraftReflection.getLibraryClass("com.mojang.brigadier.suggestion.Suggestions");
         private static final EquivalentConverter<WrappedSuggestions> CONVERTER = AutoWrapper.wrap(WrappedSuggestions.class,
-                HANDLE_TYPE)
+                        HANDLE_TYPE)
                 .field(0, WrappedStringRange.CONVERTER)
                 .field(1, BukkitConverters.getListConverter(WrappedSuggestion.CONVERTER));
         private WrappedStringRange range;
@@ -206,7 +216,7 @@ public class WrapperPlayServerTabComplete extends AbstractPacket {
 
     public static class WrappedSuggestion {
         private final static EquivalentConverter<WrappedSuggestion> CONVERTER = AutoWrapper.wrap(WrappedSuggestion.class,
-                MinecraftReflection.getLibraryClass("com.mojang.brigadier.suggestion.Suggestion"))
+                        MinecraftReflection.getLibraryClass("com.mojang.brigadier.suggestion.Suggestion"))
                 .field(0, WrappedStringRange.CONVERTER)
                 .field(2, WrappedMessage.CONVERTER);
         private WrappedStringRange range;
@@ -405,7 +415,7 @@ public class WrapperPlayServerTabComplete extends AbstractPacket {
 
             @Override
             public WrappedMessage getSpecific(Object generic) {
-                if(generic.getClass().equals(WrappedLiteralMessage.HANDLE_TYPE)) {
+                if (generic.getClass().equals(WrappedLiteralMessage.HANDLE_TYPE)) {
                     return WrappedLiteralMessage.CONVERTER.getSpecific(generic);
                 }
                 return WrappedComponentMessage.CONVERTER.getSpecific(generic);
@@ -416,6 +426,7 @@ public class WrapperPlayServerTabComplete extends AbstractPacket {
                 return WrappedMessage.class;
             }
         };
+
         String getString();
     }
 }

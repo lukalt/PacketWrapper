@@ -6,10 +6,12 @@ import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.wrappers.BlockPosition;
 
 /**
- *  Updates the block break animation progress for a specific block. The client will animate this progress.
+ * Updates the block break animation progress for a specific block. The client will animate this progress.
  */
 public class WrapperPlayServerBlockBreakAnimation extends AbstractPacket {
-
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.BLOCK_BREAK_ANIMATION;
 
     /**
@@ -21,6 +23,7 @@ public class WrapperPlayServerBlockBreakAnimation extends AbstractPacket {
 
     /**
      * Constructors a new wrapper for the specified packet
+     *
      * @param packet the packet to wrap
      */
     public WrapperPlayServerBlockBreakAnimation(PacketContainer packet) {

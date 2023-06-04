@@ -14,6 +14,9 @@ import java.util.Objects;
 
 public class WrapperPlayServerChunksBiomes extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.CHUNKS_BIOMES;
 
     /**

@@ -12,6 +12,9 @@ import java.util.Map;
  */
 public class WrapperPlayServerStatistic extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.STATISTIC;
 
     /**
@@ -21,6 +24,11 @@ public class WrapperPlayServerStatistic extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerStatistic(PacketContainer packet) {
         super(packet, TYPE);
     }

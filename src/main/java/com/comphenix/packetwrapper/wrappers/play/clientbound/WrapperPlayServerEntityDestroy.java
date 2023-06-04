@@ -11,6 +11,9 @@ import it.unimi.dsi.fastutil.ints.IntList;
  */
 public class WrapperPlayServerEntityDestroy extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.ENTITY_DESTROY;
 
     /**

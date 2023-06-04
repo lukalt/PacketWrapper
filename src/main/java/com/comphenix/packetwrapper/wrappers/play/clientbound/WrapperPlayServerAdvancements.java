@@ -10,7 +10,9 @@ import java.util.Map;
 import java.util.Set;
 
 public class WrapperPlayServerAdvancements extends AbstractPacket {
-
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.ADVANCEMENTS;
 
     /**
@@ -22,6 +24,7 @@ public class WrapperPlayServerAdvancements extends AbstractPacket {
 
     /**
      * Constructors a new wrapper for the specified packet
+     *
      * @param packet the packet to wrap
      */
     public WrapperPlayServerAdvancements(PacketContainer packet) {

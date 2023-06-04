@@ -7,12 +7,14 @@ import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.utility.MinecraftReflection;
 import com.comphenix.protocol.wrappers.Converters;
 import com.comphenix.protocol.wrappers.EnumWrappers;
-import com.comphenix.protocol.wrappers.MinecraftKey;
 
 import java.util.List;
 
 public class WrapperPlayServerCustomChatCompletions extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.CUSTOM_CHAT_COMPLETIONS;
     private static final Class<?> ACTION_TYPE = MinecraftReflection.getMinecraftClass("network.protocol.game.ClientboundCustomChatCompletionsPacket$Action");
 
@@ -30,8 +32,9 @@ public class WrapperPlayServerCustomChatCompletions extends AbstractPacket {
     /**
      * Retrieves the value of field 'action'
      * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
-     * @link getAction
+     *
      * @return 'action'
+     * @link getAction
      */
     @Deprecated
     public InternalStructure getActionInternal() {
@@ -41,8 +44,9 @@ public class WrapperPlayServerCustomChatCompletions extends AbstractPacket {
     /**
      * Sets the value of field 'action'
      * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
-     * @link setAction
+     *
      * @param value New value for field 'action'
+     * @link setAction
      */
     @Deprecated
     public void setActionInternal(InternalStructure value) {

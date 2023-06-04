@@ -7,6 +7,9 @@ import com.comphenix.protocol.wrappers.EnumWrappers.Difficulty;
 
 public class WrapperPlayServerServerDifficulty extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.SERVER_DIFFICULTY;
 
     /**
@@ -16,6 +19,11 @@ public class WrapperPlayServerServerDifficulty extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerServerDifficulty(PacketContainer packet) {
         super(packet, TYPE);
     }

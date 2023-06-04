@@ -16,16 +16,23 @@ import java.util.UUID;
  * This packet is sent by the server when a player comes into visible range, not when a player joins.
  */
 public class WrapperPlayServerNamedEntitySpawn extends AbstractPacket {
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
+    public static final PacketType TYPE = PacketType.Play.Server.NAMED_ENTITY_SPAWN;
 
     /**
      * Constructs a new wrapper and initialize it with a packet handle with default values
      */
-    public static final PacketType TYPE = PacketType.Play.Server.NAMED_ENTITY_SPAWN;
-
     public WrapperPlayServerNamedEntitySpawn() {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerNamedEntitySpawn(PacketContainer packet) {
         super(packet, TYPE);
     }

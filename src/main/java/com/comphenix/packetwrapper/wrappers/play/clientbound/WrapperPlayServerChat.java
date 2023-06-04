@@ -7,15 +7,20 @@ import com.comphenix.protocol.events.InternalStructure;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.reflect.EquivalentConverter;
 import com.comphenix.protocol.utility.MinecraftReflection;
-import com.comphenix.protocol.wrappers.*;
+import com.comphenix.protocol.wrappers.AutoWrapper;
+import com.comphenix.protocol.wrappers.EnumWrappers;
+import com.comphenix.protocol.wrappers.WrappedChatComponent;
+import com.comphenix.protocol.wrappers.WrappedMessageSignature;
 
-import java.time.Instant;
 import java.util.BitSet;
 import java.util.Objects;
 import java.util.UUID;
 
 public class WrapperPlayServerChat extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.CHAT;
 
     /**
@@ -164,8 +169,9 @@ public class WrapperPlayServerChat extends AbstractPacket {
     /**
      * Retrieves the value of field 'chatType'
      * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
-     * @deprecated {Use {@link WrapperPlayServerChat#getChatType()} instead}
+     *
      * @return 'chatType'
+     * @deprecated {Use {@link WrapperPlayServerChat#getChatType()} instead}
      */
     @Deprecated
     public InternalStructure getChatTypeInternal() {
@@ -175,8 +181,9 @@ public class WrapperPlayServerChat extends AbstractPacket {
     /**
      * Sets the value of field 'chatType'
      * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
-     * @deprecated {Use {@link WrapperPlayServerChat#setChatType(WrappedBoundChatType)} instead}
+     *
      * @param value New value for field 'chatType'
+     * @deprecated {Use {@link WrapperPlayServerChat#setChatType(WrappedBoundChatType)} instead}
      */
     @Deprecated
     public void setChatTypeInternal(InternalStructure value) {

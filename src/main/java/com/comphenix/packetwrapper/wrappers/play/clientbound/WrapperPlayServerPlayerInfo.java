@@ -17,6 +17,9 @@ import java.util.Set;
  */
 public class WrapperPlayServerPlayerInfo extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.PLAYER_INFO;
 
     /**

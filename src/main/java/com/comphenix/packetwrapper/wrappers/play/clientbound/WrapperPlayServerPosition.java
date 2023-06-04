@@ -9,8 +9,14 @@ import com.comphenix.protocol.wrappers.EnumWrappers;
 
 import java.util.Set;
 
+/**
+ * Send by server to client to synchronize the player's position.
+ */
 public class WrapperPlayServerPosition extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.POSITION;
     private static final Class<?> RELATIVE_MOVEMENT_CLASS = MinecraftReflection.getMinecraftClass("world.entity.RelativeMovement");
     private static final EquivalentConverter<RelativeMovement> RELATIVE_MOVEMENT_CONVERTER = new EnumWrappers.IndexedEnumConverter<>(RelativeMovement.class, RELATIVE_MOVEMENT_CLASS);
@@ -22,6 +28,11 @@ public class WrapperPlayServerPosition extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerPosition(PacketContainer packet) {
         super(packet, TYPE);
     }
@@ -151,6 +162,7 @@ public class WrapperPlayServerPosition extends AbstractPacket {
     public void setId(int value) {
         this.handle.getIntegers().write(0, value);
     }
+
     public enum RelativeMovement {
         X,
         Y,

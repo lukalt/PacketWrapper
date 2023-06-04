@@ -7,6 +7,9 @@ import com.comphenix.protocol.wrappers.BlockPosition;
 
 public class WrapperPlayServerSpawnPosition extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.SPAWN_POSITION;
 
     /**
@@ -16,6 +19,11 @@ public class WrapperPlayServerSpawnPosition extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerSpawnPosition(PacketContainer packet) {
         super(packet, TYPE);
     }

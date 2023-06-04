@@ -7,6 +7,9 @@ import com.comphenix.protocol.wrappers.WrappedChatComponent;
 
 public class WrapperPlayServerResourcePackSend extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.RESOURCE_PACK_SEND;
 
     /**

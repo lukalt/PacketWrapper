@@ -3,7 +3,6 @@ package com.comphenix.packetwrapper.wrappers.play.clientbound;
 import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.packetwrapper.wrappers.data.ResourceKey;
 import com.comphenix.protocol.PacketType;
-import com.comphenix.protocol.events.InternalStructure;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.reflect.EquivalentConverter;
 import com.comphenix.protocol.utility.MinecraftReflection;
@@ -11,15 +10,16 @@ import com.comphenix.protocol.wrappers.AutoWrapper;
 import com.comphenix.protocol.wrappers.BukkitConverters;
 import com.comphenix.protocol.wrappers.Converters;
 import com.comphenix.protocol.wrappers.MinecraftKey;
-import com.sun.jna.platform.unix.X11;
 import it.unimi.dsi.fastutil.ints.IntList;
-import org.bukkit.Bukkit;
 
 import java.util.Map;
 import java.util.Objects;
 
 public class WrapperPlayServerTags extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.TAGS;
 
     /**
@@ -29,6 +29,11 @@ public class WrapperPlayServerTags extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerTags(PacketContainer packet) {
         super(packet, TYPE);
     }

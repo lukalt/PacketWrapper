@@ -19,6 +19,9 @@ import java.util.Objects;
 
 public class WrapperPlayServerRecipes extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.RECIPES;
     private static final Class<?> ACTION_TYPE = MinecraftReflection.getNullableNMS("network.protocol.game.PacketPlayOutRecipes$Action");
 
@@ -95,6 +98,7 @@ public class WrapperPlayServerRecipes extends AbstractPacket {
     public WrappedRecipeBookSettings getBookSettings() {
         return this.handle.getModifier().withType(WrappedRecipeBookSettings.HANDLE_TYPE, WrappedRecipeBookSettings.CONVERTER).read(0);
     }
+
     /**
      * Sets the recipe book settings
      *

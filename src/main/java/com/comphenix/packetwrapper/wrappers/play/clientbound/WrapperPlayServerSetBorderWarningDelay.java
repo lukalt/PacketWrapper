@@ -6,6 +6,9 @@ import com.comphenix.protocol.events.PacketContainer;
 
 public class WrapperPlayServerSetBorderWarningDelay extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.SET_BORDER_WARNING_DELAY;
 
     /**

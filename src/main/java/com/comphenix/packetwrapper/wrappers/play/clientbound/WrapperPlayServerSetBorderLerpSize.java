@@ -6,6 +6,9 @@ import com.comphenix.protocol.events.PacketContainer;
 
 public class WrapperPlayServerSetBorderLerpSize extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.SET_BORDER_LERP_SIZE;
 
     /**
@@ -15,6 +18,11 @@ public class WrapperPlayServerSetBorderLerpSize extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerSetBorderLerpSize(PacketContainer packet) {
         super(packet, TYPE);
     }

@@ -9,6 +9,9 @@ import com.comphenix.protocol.wrappers.WrappedChatComponent;
 
 public class WrapperPlayServerDisguisedChat extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.DISGUISED_CHAT;
 
     /**
@@ -43,8 +46,9 @@ public class WrapperPlayServerDisguisedChat extends AbstractPacket {
     /**
      * Retrieves the value of field 'chatType'
      * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
-     * @deprecated Use {@link #getChatType()} instead
+     *
      * @return 'chatType'
+     * @deprecated Use {@link #getChatType()} instead
      */
     @Deprecated
     public InternalStructure getChatTypeInternal() {
@@ -54,8 +58,9 @@ public class WrapperPlayServerDisguisedChat extends AbstractPacket {
     /**
      * Sets the value of field 'chatType'
      * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
-     * @deprecated Use {@link #setChatType(WrappedBoundChatType)} instead
+     *
      * @param value New value for field 'chatType'
+     * @deprecated Use {@link #setChatType(WrappedBoundChatType)} instead
      */
     @Deprecated
     public void setChatTypeInternal(InternalStructure value) {

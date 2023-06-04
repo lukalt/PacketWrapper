@@ -9,6 +9,9 @@ import com.comphenix.protocol.wrappers.WrappedRegistrable;
 
 public class WrapperPlayServerTileEntityData extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.TILE_ENTITY_DATA;
 
     /**
@@ -18,6 +21,11 @@ public class WrapperPlayServerTileEntityData extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerTileEntityData(PacketContainer packet) {
         super(packet, TYPE);
     }

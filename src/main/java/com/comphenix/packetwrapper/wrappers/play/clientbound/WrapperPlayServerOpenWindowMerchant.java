@@ -3,11 +3,15 @@ package com.comphenix.packetwrapper.wrappers.play.clientbound;
 import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
+import org.bukkit.inventory.MerchantRecipe;
 
 import java.util.List;
 
 public class WrapperPlayServerOpenWindowMerchant extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.OPEN_WINDOW_MERCHANT;
 
     /**
@@ -44,7 +48,7 @@ public class WrapperPlayServerOpenWindowMerchant extends AbstractPacket {
      *
      * @return 'offers'
      */
-    public List getOffers() {
+    public List<MerchantRecipe> getOffers() {
         return this.handle.getMerchantRecipeLists().read(0);
     }
 
@@ -53,7 +57,7 @@ public class WrapperPlayServerOpenWindowMerchant extends AbstractPacket {
      *
      * @param value New value for field 'offers'
      */
-    public void setOffers(List value) {
+    public void setOffers(List<MerchantRecipe> value) {
         this.handle.getMerchantRecipeLists().write(0, value);
     }
 

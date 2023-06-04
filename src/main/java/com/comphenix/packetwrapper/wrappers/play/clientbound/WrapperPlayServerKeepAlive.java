@@ -6,6 +6,9 @@ import com.comphenix.protocol.events.PacketContainer;
 
 public class WrapperPlayServerKeepAlive extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.KEEP_ALIVE;
 
     /**
@@ -15,6 +18,11 @@ public class WrapperPlayServerKeepAlive extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerKeepAlive(PacketContainer packet) {
         super(packet, TYPE);
     }

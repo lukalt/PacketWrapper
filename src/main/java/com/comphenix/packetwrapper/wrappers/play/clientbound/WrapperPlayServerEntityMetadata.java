@@ -15,6 +15,9 @@ public class WrapperPlayServerEntityMetadata extends AbstractPacket {
     /**
      * The type of this packet
      */
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.ENTITY_METADATA;
 
     /**
@@ -26,6 +29,7 @@ public class WrapperPlayServerEntityMetadata extends AbstractPacket {
 
     /**
      * Constructors a new wrapper for the specified packet
+     *
      * @param packet the packet to wrap
      */
     public WrapperPlayServerEntityMetadata(PacketContainer packet) {

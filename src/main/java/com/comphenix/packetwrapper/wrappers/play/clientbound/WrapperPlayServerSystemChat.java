@@ -4,12 +4,14 @@ import com.comphenix.packetwrapper.util.ReflectiveAdventureComponentConverter;
 import com.comphenix.packetwrapper.util.UtilityMethod;
 import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.protocol.PacketType;
-import com.comphenix.protocol.events.InternalStructure;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.wrappers.WrappedChatComponent;
 
 public class WrapperPlayServerSystemChat extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.SYSTEM_CHAT;
 
     /**
@@ -19,6 +21,11 @@ public class WrapperPlayServerSystemChat extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerSystemChat(PacketContainer packet) {
         super(packet, TYPE);
     }
@@ -30,7 +37,7 @@ public class WrapperPlayServerSystemChat extends AbstractPacket {
      */
     public String getContent() {
         String read = this.handle.getStrings().read(0);
-        if(read != null) {
+        if (read != null) {
             return read;
         }
         return ReflectiveAdventureComponentConverter.componentToString(this.handle.getStructures().read(0).getHandle());
@@ -42,7 +49,7 @@ public class WrapperPlayServerSystemChat extends AbstractPacket {
      * @param value New value for field 'content'
      */
     public void setContent(String value) {
-        if(isUsingPaper()) {
+        if (isUsingPaper()) {
             // We are using paper. Remove adventure component
             this.handle.getModifier().write(0, null);
         }
@@ -51,6 +58,7 @@ public class WrapperPlayServerSystemChat extends AbstractPacket {
 
     /**
      * Gets the content of the system message as a chat component
+     *
      * @return content of the system message
      */
     @UtilityMethod
@@ -60,6 +68,7 @@ public class WrapperPlayServerSystemChat extends AbstractPacket {
 
     /**
      * Sets the content of the system message
+     *
      * @param component content of the system message
      */
     @UtilityMethod

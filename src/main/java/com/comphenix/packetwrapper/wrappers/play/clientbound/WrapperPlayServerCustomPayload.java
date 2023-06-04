@@ -1,7 +1,7 @@
 package com.comphenix.packetwrapper.wrappers.play.clientbound;
 
-import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.packetwrapper.util.TestExclusion;
+import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.InternalStructure;
 import com.comphenix.protocol.events.PacketContainer;
@@ -11,6 +11,9 @@ import io.netty.buffer.ByteBuf;
 
 public class WrapperPlayServerCustomPayload extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.CUSTOM_PAYLOAD;
 
     /**

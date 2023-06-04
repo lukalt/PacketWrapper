@@ -11,6 +11,9 @@ import java.util.Optional;
 
 public class WrapperPlayServerServerData extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.SERVER_DATA;
 
     /**
@@ -20,6 +23,11 @@ public class WrapperPlayServerServerData extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerServerData(PacketContainer packet) {
         super(packet, TYPE);
     }

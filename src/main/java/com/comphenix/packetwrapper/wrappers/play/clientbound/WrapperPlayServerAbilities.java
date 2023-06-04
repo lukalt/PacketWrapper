@@ -5,7 +5,9 @@ import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
 
 public class WrapperPlayServerAbilities extends AbstractPacket {
-
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.ABILITIES;
 
     /**
@@ -17,6 +19,7 @@ public class WrapperPlayServerAbilities extends AbstractPacket {
 
     /**
      * Constructors a new wrapper for the specified packet
+     *
      * @param packet the packet to wrap
      */
     public WrapperPlayServerAbilities(PacketContainer packet) {

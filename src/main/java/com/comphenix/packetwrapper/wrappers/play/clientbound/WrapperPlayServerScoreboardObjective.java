@@ -1,5 +1,6 @@
 package com.comphenix.packetwrapper.wrappers.play.clientbound;
 
+import com.comphenix.packetwrapper.util.UtilityMethod;
 import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
@@ -10,6 +11,9 @@ import org.bukkit.scoreboard.RenderType;
 
 public class WrapperPlayServerScoreboardObjective extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.SCOREBOARD_OBJECTIVE;
     private static final Class<?> ACTION_CLASS = MinecraftReflection.getNullableNMS("world.scores.criteria.ObjectiveCriteria$RenderType", "world.scores.criteria.IScoreboardCriteria$EnumScoreboardHealthDisplay");
 
@@ -22,6 +26,12 @@ public class WrapperPlayServerScoreboardObjective extends AbstractPacket {
 
     public WrapperPlayServerScoreboardObjective(PacketContainer packet) {
         super(packet, TYPE);
+    }
+
+    public enum Method {
+        CREATE,
+        REMOVE,
+        UPDATE_DISPLAY_NAME
     }
 
     /**
@@ -79,7 +89,7 @@ public class WrapperPlayServerScoreboardObjective extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'method'
+     * Retrieves the index of the method
      *
      * @return 'method'
      */
@@ -88,12 +98,32 @@ public class WrapperPlayServerScoreboardObjective extends AbstractPacket {
     }
 
     /**
-     * Sets the value of field 'method'
+     * Sets the index of the method
      *
      * @param value New value for field 'method'
      */
     public void setMethod(int value) {
         this.handle.getIntegers().write(0, value);
+    }
+
+    /**
+     * Retrieves the method for this operation
+     *
+     * @return 'method'
+     */
+    @UtilityMethod
+    public Method getMethodEnum() {
+        return Method.values()[this.getMethod()];
+    }
+
+    /**
+     * Sets the method for this operation
+     *
+     * @param value New value for field 'method'
+     */
+    @UtilityMethod
+    public void setMethodEnum(Method value) {
+        this.setMethod(value.ordinal());
     }
 
 }

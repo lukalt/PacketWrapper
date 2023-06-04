@@ -7,6 +7,9 @@ import com.comphenix.protocol.wrappers.WrappedParticle;
 
 public class WrapperPlayServerWorldParticles extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.WORLD_PARTICLES;
 
     /**
@@ -16,6 +19,11 @@ public class WrapperPlayServerWorldParticles extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerWorldParticles(PacketContainer packet) {
         super(packet, TYPE);
     }

@@ -8,6 +8,9 @@ import com.comphenix.protocol.wrappers.WrappedLevelChunkData.LightData;
 
 public class WrapperPlayServerMapChunk extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.MAP_CHUNK;
 
     /**
@@ -17,6 +20,11 @@ public class WrapperPlayServerMapChunk extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerMapChunk(PacketContainer packet) {
         super(packet, TYPE);
     }

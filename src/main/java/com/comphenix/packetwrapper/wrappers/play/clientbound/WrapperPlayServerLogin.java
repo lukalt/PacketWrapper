@@ -18,6 +18,9 @@ import java.util.Set;
 
 public class WrapperPlayServerLogin extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.LOGIN;
 
     /**
@@ -143,8 +146,9 @@ public class WrapperPlayServerLogin extends AbstractPacket {
 
     /**
      * Retrieves the value of field 'dimensionType'
-     * @deprecated Use {@link #getDimensionType()} instead
+     *
      * @return 'dimensionType'
+     * @deprecated Use {@link #getDimensionType()} instead
      */
     @Deprecated
     public InternalStructure getDimensionTypeInternal() {
@@ -153,14 +157,14 @@ public class WrapperPlayServerLogin extends AbstractPacket {
 
     /**
      * Sets the value of field 'dimensionType'
-     * @deprecated Use {@link #setDimensionType(ResourceKey)} instead
+     *
      * @param value New value for field 'dimensionType'
+     * @deprecated Use {@link #setDimensionType(ResourceKey)} instead
      */
     @Deprecated
     public void setDimensionTypeInternal(InternalStructure value) {
         this.handle.getStructures().write(3, value);
     }
-
 
 
     /**
@@ -185,8 +189,9 @@ public class WrapperPlayServerLogin extends AbstractPacket {
 
     /**
      * Retrieves the value of field 'dimension'
-     * @deprecated Use {@link #getDimension()} instead
+     *
      * @return 'dimension'
+     * @deprecated Use {@link #getDimension()} instead
      */
     @Deprecated
     public InternalStructure getDimensionInternal() {
@@ -195,8 +200,9 @@ public class WrapperPlayServerLogin extends AbstractPacket {
 
     /**
      * Sets the value of field 'dimension'
-     * @deprecated Use {@link #setDimension(World)} instead
+     *
      * @param value New value for field 'dimension'
+     * @deprecated Use {@link #setDimension(World)} instead
      */
     @Deprecated
     public void setDimensionInternal(InternalStructure value) {

@@ -7,6 +7,9 @@ import com.comphenix.protocol.wrappers.BlockPosition;
 
 public class WrapperPlayServerWorldEvent extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.WORLD_EVENT;
 
     /**
@@ -16,12 +19,18 @@ public class WrapperPlayServerWorldEvent extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerWorldEvent(PacketContainer packet) {
         super(packet, TYPE);
     }
 
     /**
-     * Retrieves the value of field 'type'
+     * Retrieves the type of the action to perform.
+     * A list of all actions can be found here: <a href="https://wiki.vg/Protocol#World_Event">https://wiki.vg/Protocol#World_Event</a>
      *
      * @return 'type'
      */
@@ -30,7 +39,8 @@ public class WrapperPlayServerWorldEvent extends AbstractPacket {
     }
 
     /**
-     * Sets the value of field 'type'
+     * Sets the type of the action to perform.
+     * A list of all actions can be found here: <a href="https://wiki.vg/Protocol#World_Event">https://wiki.vg/Protocol#World_Event</a>
      *
      * @param value New value for field 'type'
      */

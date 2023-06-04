@@ -1,5 +1,6 @@
 package com.comphenix.packetwrapper.wrappers.play.clientbound;
 
+import com.comphenix.packetwrapper.util.UtilityMethod;
 import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
@@ -20,6 +21,9 @@ import java.util.Optional;
 
 public class WrapperPlayServerScoreboardTeam extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.SCOREBOARD_TEAM;
 
     /**
@@ -29,12 +33,25 @@ public class WrapperPlayServerScoreboardTeam extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerScoreboardTeam(PacketContainer packet) {
         super(packet, TYPE);
     }
 
+    public enum Method {
+        CREATE_TEAM,
+        REMOVE_TEAM,
+        UPDATE_TEAM_INFO,
+        ADD_PLAYER,
+        REMOVE_PLAYER
+    }
+
     /**
-     * Retrieves the value of field 'method'
+     * Retrieves the index of the type of this operations
      *
      * @return 'method'
      */
@@ -43,12 +60,33 @@ public class WrapperPlayServerScoreboardTeam extends AbstractPacket {
     }
 
     /**
-     * Sets the value of field 'method'
+     * Retrieves the type of this operation
+     *
+     * @return type of operation
+     */
+    @UtilityMethod
+    public Method getMethodEnum() {
+        return Method.values()[this.getMethod()];
+    }
+
+    /**
+     * Sets the index of the type of this operation
      *
      * @param value New value for field 'method'
+     * @see WrapperPlayServerScoreboardTeam#setMethodEnum(Method)
      */
     public void setMethod(int value) {
         this.handle.getIntegers().write(0, value);
+    }
+
+    /**
+     * Sets the type of this operation
+     *
+     * @param method The method
+     */
+    @UtilityMethod
+    public void setMethodEnum(Method method) {
+        this.setMethod(method.ordinal());
     }
 
     /**

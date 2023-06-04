@@ -11,14 +11,22 @@ import com.comphenix.protocol.events.PacketContainer;
 public class WrapperPlayServerSpawnEntityExperienceOrb extends AbstractPacket {
 
     /**
-     * Constructs a new wrapper and initialize it with a packet handle with default values
+     * The packet type that is wrapped by this wrapper.
      */
     public static final PacketType TYPE = PacketType.Play.Server.SPAWN_ENTITY_EXPERIENCE_ORB;
 
+    /**
+     * Constructs a new wrapper and initialize it with a packet handle with default values
+     */
     public WrapperPlayServerSpawnEntityExperienceOrb() {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerSpawnEntityExperienceOrb(PacketContainer packet) {
         super(packet, TYPE);
     }

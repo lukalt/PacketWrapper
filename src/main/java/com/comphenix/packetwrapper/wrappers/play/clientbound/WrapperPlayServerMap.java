@@ -15,6 +15,9 @@ import java.util.Objects;
 
 public class WrapperPlayServerMap extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.MAP;
 
     /**
@@ -24,6 +27,11 @@ public class WrapperPlayServerMap extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerMap(PacketContainer packet) {
         super(packet, TYPE);
     }
@@ -103,8 +111,9 @@ public class WrapperPlayServerMap extends AbstractPacket {
 
     /**
      * Retrieves the value of field 'colorPatch'
-     * @link getColorPatch
+     *
      * @return 'colorPatch'
+     * @link getColorPatch
      */
     @Deprecated
     public InternalStructure getColorPatchInternal() {
@@ -114,8 +123,8 @@ public class WrapperPlayServerMap extends AbstractPacket {
     /**
      * Sets the value of field 'colorPatch'
      *
-     * @link setColorPatch
      * @param value New value for field 'colorPatch'
+     * @link setColorPatch
      */
     @Deprecated
     public void setColorPatchInternal(InternalStructure value) {

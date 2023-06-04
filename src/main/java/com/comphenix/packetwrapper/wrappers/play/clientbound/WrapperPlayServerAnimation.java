@@ -11,6 +11,9 @@ import com.comphenix.protocol.events.PacketContainer;
  */
 public class WrapperPlayServerAnimation extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.ANIMATION;
 
     /**
@@ -22,6 +25,7 @@ public class WrapperPlayServerAnimation extends AbstractPacket {
 
     /**
      * Constructors a new wrapper for the specified packet
+     *
      * @param packet the packet to wrap
      */
     public WrapperPlayServerAnimation(PacketContainer packet) {
@@ -66,14 +70,13 @@ public class WrapperPlayServerAnimation extends AbstractPacket {
     }
 
 
-
     /**
      * Sets the numerical index of the corresponding animation
      *
      * @param value New value for field 'action'
      */
     public void setActionId(int value) {
-        this.handle.getIntegers().write(1,  value);
+        this.handle.getIntegers().write(1, value);
     }
 
     /**

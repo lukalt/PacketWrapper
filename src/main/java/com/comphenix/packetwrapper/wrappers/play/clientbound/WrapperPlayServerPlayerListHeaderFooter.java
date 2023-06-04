@@ -6,13 +6,14 @@ import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.wrappers.WrappedChatComponent;
 
-import java.sql.Ref;
-
 /**
  * Sents by server to client to update the header and footer in the tab list
  */
 public class WrapperPlayServerPlayerListHeaderFooter extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.PLAYER_LIST_HEADER_FOOTER;
 
     /**
@@ -22,6 +23,11 @@ public class WrapperPlayServerPlayerListHeaderFooter extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerPlayerListHeaderFooter(PacketContainer packet) {
         super(packet, TYPE);
     }
@@ -83,7 +89,7 @@ public class WrapperPlayServerPlayerListHeaderFooter extends AbstractPacket {
         if (isUsingPaper()) {
             this.handle.getModifier().write(3, null);
             Object headerNms = this.handle.getModifier().read(2);
-            if(headerNms != null) {
+            if (headerNms != null) {
                 this.handle.getChatComponents().write(0, ReflectiveAdventureComponentConverter.fromComponent(headerNms));
             }
             this.handle.getModifier().write(2, null);

@@ -1,7 +1,7 @@
 package com.comphenix.packetwrapper.wrappers.play.clientbound;
 
-import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.packetwrapper.util.TestExclusion;
+import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.wrappers.EnumWrappers.SoundCategory;
@@ -9,6 +9,9 @@ import com.comphenix.protocol.wrappers.MinecraftKey;
 
 public class WrapperPlayServerStopSound extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.STOP_SOUND;
 
     /**
@@ -18,6 +21,11 @@ public class WrapperPlayServerStopSound extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerStopSound(PacketContainer packet) {
         super(packet, TYPE);
     }

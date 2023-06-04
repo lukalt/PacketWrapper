@@ -10,6 +10,9 @@ import java.util.List;
 
 public class WrapperPlayServerWindowItems extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.WINDOW_ITEMS;
 
     /**
@@ -19,6 +22,11 @@ public class WrapperPlayServerWindowItems extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerWindowItems(PacketContainer packet) {
         super(packet, TYPE);
     }

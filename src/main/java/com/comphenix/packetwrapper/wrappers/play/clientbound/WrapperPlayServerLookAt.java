@@ -10,8 +10,14 @@ import com.comphenix.protocol.reflect.StructureModifier;
 import com.comphenix.protocol.utility.MinecraftReflection;
 import com.comphenix.protocol.wrappers.EnumWrappers;
 
+/**
+ * Send by server to client to rotate the client player to face the given location or entity.
+ */
 public class WrapperPlayServerLookAt extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.LOOK_AT;
     private static final Class<?> ANCHOR_TYPE = MinecraftReflection.getMinecraftClass("commands.arguments.EntityAnchorArgument$Anchor", "commands.arguments.ArgumentAnchor$Anchor");
 
@@ -22,6 +28,11 @@ public class WrapperPlayServerLookAt extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerLookAt(PacketContainer packet) {
         super(packet, TYPE);
     }
@@ -100,8 +111,9 @@ public class WrapperPlayServerLookAt extends AbstractPacket {
 
     /**
      * Retrieves the value of field 'fromAnchor'
-     * @deprecated Use {@link #getFromAnchor()} instead
+     *
      * @return 'fromAnchor'
+     * @deprecated Use {@link #getFromAnchor()} instead
      */
     @Deprecated
     public InternalStructure getFromAnchorInternal() {
@@ -111,8 +123,9 @@ public class WrapperPlayServerLookAt extends AbstractPacket {
     /**
      * Sets the value of field 'fromAnchor'
      * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
-     * @deprecated Use {@link #setFromAnchor(Anchor)} instead
+     *
      * @param value New value for field 'fromAnchor'
+     * @deprecated Use {@link #setFromAnchor(Anchor)} instead
      */
     @Deprecated
     public void setFromAnchorInternal(InternalStructure value) {
@@ -122,8 +135,9 @@ public class WrapperPlayServerLookAt extends AbstractPacket {
     /**
      * Retrieves the value of field 'toAnchor'
      * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
-     * @deprecated Use {@link #getToAnchor()} instead
+     *
      * @return 'toAnchor'
+     * @deprecated Use {@link #getToAnchor()} instead
      */
     @Deprecated
     public InternalStructure getToAnchorInternal() {
@@ -133,8 +147,9 @@ public class WrapperPlayServerLookAt extends AbstractPacket {
     /**
      * Sets the value of field 'toAnchor'
      * ProtocolLib currently does not provide a wrapper for this type. Access to this type is only provided by an InternalStructure
-     * @deprecated Use {@link #setToAnchor(Anchor)} instead
+     *
      * @param value New value for field 'toAnchor'
+     * @deprecated Use {@link #setToAnchor(Anchor)} instead
      */
     @Deprecated
     public void setToAnchorInternal(InternalStructure value) {
@@ -183,6 +198,7 @@ public class WrapperPlayServerLookAt extends AbstractPacket {
     private StructureModifier<Anchor> getAnchors() {
         return this.handle.getModifier().withType(ANCHOR_TYPE, new EnumWrappers.IndexedEnumConverter<>(Anchor.class, ANCHOR_TYPE));
     }
+
     /**
      * Retrieves the value of field 'atEntity'
      *

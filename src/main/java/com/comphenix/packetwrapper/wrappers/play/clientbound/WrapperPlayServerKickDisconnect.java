@@ -5,8 +5,14 @@ import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.wrappers.WrappedChatComponent;
 
+/**
+ * Send by server to client to disconnect the client. The specified message will be shown on the disconnect screen.
+ */
 public class WrapperPlayServerKickDisconnect extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.KICK_DISCONNECT;
 
     /**
@@ -16,12 +22,17 @@ public class WrapperPlayServerKickDisconnect extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerKickDisconnect(PacketContainer packet) {
         super(packet, TYPE);
     }
 
     /**
-     * Retrieves the value of field 'reason'
+     * Retrieves the kick reason shown on the disconnect screen
      *
      * @return 'reason'
      */
@@ -30,7 +41,7 @@ public class WrapperPlayServerKickDisconnect extends AbstractPacket {
     }
 
     /**
-     * Sets the value of field 'reason'
+     * Sets the kick reason shown on the disconnect screen
      *
      * @param value New value for field 'reason'
      */

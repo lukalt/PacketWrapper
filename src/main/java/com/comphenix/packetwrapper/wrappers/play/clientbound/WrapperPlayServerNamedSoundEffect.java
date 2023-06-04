@@ -10,6 +10,9 @@ import org.bukkit.Sound;
 
 public class WrapperPlayServerNamedSoundEffect extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.NAMED_SOUND_EFFECT;
 
     /**
@@ -19,6 +22,11 @@ public class WrapperPlayServerNamedSoundEffect extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerNamedSoundEffect(PacketContainer packet) {
         super(packet, TYPE);
     }

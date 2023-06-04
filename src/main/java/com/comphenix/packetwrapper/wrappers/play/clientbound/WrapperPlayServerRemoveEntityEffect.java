@@ -7,6 +7,9 @@ import org.bukkit.potion.PotionEffectType;
 
 public class WrapperPlayServerRemoveEntityEffect extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.REMOVE_ENTITY_EFFECT;
 
     /**

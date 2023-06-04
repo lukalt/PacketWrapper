@@ -14,6 +14,9 @@ import org.bukkit.potion.PotionEffectType;
 import javax.annotation.Nullable;
 
 public class WrapperPlayServerEntityEffect extends AbstractPacket {
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.ENTITY_EFFECT;
 
     public static final int FLAG_AMBIENT = 0x01;

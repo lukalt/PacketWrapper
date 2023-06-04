@@ -1,13 +1,16 @@
 package com.comphenix.packetwrapper.wrappers.play.clientbound;
 
-import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.packetwrapper.util.TestExclusion;
+import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.wrappers.MinecraftKey;
 
 public class WrapperPlayServerSelectAdvancementTab extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.SELECT_ADVANCEMENT_TAB;
 
     /**
@@ -17,6 +20,11 @@ public class WrapperPlayServerSelectAdvancementTab extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerSelectAdvancementTab(PacketContainer packet) {
         super(packet, TYPE);
     }

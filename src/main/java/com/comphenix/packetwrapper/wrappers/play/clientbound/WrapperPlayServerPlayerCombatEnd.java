@@ -5,10 +5,14 @@ import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
 
 /**
- * Unused packet
+ * @deprecated Unused packet
  */
+@Deprecated
 public class WrapperPlayServerPlayerCombatEnd extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.PLAYER_COMBAT_END;
 
     /**

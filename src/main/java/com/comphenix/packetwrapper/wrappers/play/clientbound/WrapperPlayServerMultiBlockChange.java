@@ -11,6 +11,9 @@ import com.comphenix.protocol.wrappers.WrappedBlockData;
  */
 public class WrapperPlayServerMultiBlockChange extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.MULTI_BLOCK_CHANGE;
 
     /**
@@ -20,6 +23,11 @@ public class WrapperPlayServerMultiBlockChange extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerMultiBlockChange(PacketContainer packet) {
         super(packet, TYPE);
     }

@@ -7,6 +7,9 @@ import com.comphenix.protocol.wrappers.MinecraftKey;
 
 public class WrapperPlayServerAutoRecipe extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.AUTO_RECIPE;
 
     /**
@@ -18,6 +21,7 @@ public class WrapperPlayServerAutoRecipe extends AbstractPacket {
 
     /**
      * Constructors a new wrapper for the specified packet
+     *
      * @param packet the packet to wrap
      */
     public WrapperPlayServerAutoRecipe(PacketContainer packet) {

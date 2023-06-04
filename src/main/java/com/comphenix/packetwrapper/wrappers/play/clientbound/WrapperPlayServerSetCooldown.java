@@ -1,7 +1,7 @@
 package com.comphenix.packetwrapper.wrappers.play.clientbound;
 
-import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.packetwrapper.util.MoreConverters;
+import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.utility.MinecraftReflection;
@@ -9,6 +9,9 @@ import org.bukkit.Material;
 
 public class WrapperPlayServerSetCooldown extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.SET_COOLDOWN;
 
     /**
@@ -18,6 +21,11 @@ public class WrapperPlayServerSetCooldown extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerSetCooldown(PacketContainer packet) {
         super(packet, TYPE);
     }

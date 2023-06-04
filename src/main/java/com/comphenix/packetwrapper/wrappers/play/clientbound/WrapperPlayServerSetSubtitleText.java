@@ -3,7 +3,6 @@ package com.comphenix.packetwrapper.wrappers.play.clientbound;
 import com.comphenix.packetwrapper.util.ReflectiveAdventureComponentConverter;
 import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.protocol.PacketType;
-import com.comphenix.protocol.events.InternalStructure;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.reflect.StructureModifier;
 import com.comphenix.protocol.wrappers.ComponentConverter;
@@ -12,6 +11,9 @@ import net.md_5.bungee.api.chat.BaseComponent;
 
 public class WrapperPlayServerSetSubtitleText extends AbstractPacket {
 
+    /**
+     * The packet type that is wrapped by this wrapper.
+     */
     public static final PacketType TYPE = PacketType.Play.Server.SET_SUBTITLE_TEXT;
 
     /**
@@ -21,6 +23,11 @@ public class WrapperPlayServerSetSubtitleText extends AbstractPacket {
         super(TYPE);
     }
 
+    /**
+     * Constructors a new wrapper for the specified packet
+     *
+     * @param packet the packet to wrap
+     */
     public WrapperPlayServerSetSubtitleText(PacketContainer packet) {
         super(packet, TYPE);
     }
@@ -32,11 +39,11 @@ public class WrapperPlayServerSetSubtitleText extends AbstractPacket {
      */
     public WrappedChatComponent getText() {
         WrappedChatComponent read = this.handle.getChatComponents().read(0);
-        if(read != null) {
+        if (read != null) {
             return read;
         }
         Object adventure = this.handle.getModifier().read(1);
-        if(adventure != null) {
+        if (adventure != null) {
             return ReflectiveAdventureComponentConverter.fromComponent(adventure);
         }
         BaseComponent[] baseComponents = (BaseComponent[]) this.handle.getModifier().read(2);
@@ -51,8 +58,8 @@ public class WrapperPlayServerSetSubtitleText extends AbstractPacket {
     public void setText(WrappedChatComponent value) {
         this.handle.getChatComponents().write(0, value);
         StructureModifier<Object> structures = this.handle.getModifier();
-        if(structures.size() > 1) {
-            for(int i = 1; i < structures.size(); i++) {
+        if (structures.size() > 1) {
+            for (int i = 1; i < structures.size(); i++) {
                 structures.write(i, null);
             }
         }
