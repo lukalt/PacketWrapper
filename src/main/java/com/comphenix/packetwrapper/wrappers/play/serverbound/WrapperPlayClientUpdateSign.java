@@ -36,6 +36,24 @@ public class WrapperPlayClientUpdateSign extends AbstractPacket {
     }
 
     /**
+     * Gets the face of the sign to update
+     * @since 1.20
+     * @return whether the front (true) or on the back (false) of the sign is updated
+     */
+    public boolean getFrontText() {
+        return this.handle.getBooleans().read(0);
+    }
+
+    /**
+     * Sets the face of the sign to update
+     * @since 1.20
+     * @param value whether the front (true) or on the back (false) of the sign is updated
+     */
+    public void setFrontText(boolean value) {
+        this.handle.getBooleans().write(0, value);
+    }
+
+    /**
      * Retrieves the value of field 'lines'
      *
      * @return 'lines'

@@ -390,4 +390,25 @@ public class WrapperPlayServerLogin extends AbstractPacket {
         this.handle.getOptionals(Vector3I.getConverter()).write(0, Optional.ofNullable(value));
     }
 
+
+
+    /**
+     * Gets the portal cooldown
+     * @since 1.20
+     * @return the number of ticks until the player can use the portal again
+     */
+    public int getPortalCooldown() {
+        return this.getHandle().getIntegers().read(1);
+    }
+
+    /**
+     * Sets the portal cooldown
+     * @since 1.20
+     * @param value the number of ticks until the player can use the portal again
+     */
+    public void setPortalCooldown(int value) {
+        this.getHandle().getIntegers().write(1, value);
+    }
+
+
 }

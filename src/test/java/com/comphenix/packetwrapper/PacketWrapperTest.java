@@ -9,6 +9,7 @@ import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.InternalStructure;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.reflect.ExactReflection;
+import com.comphenix.protocol.utility.MinecraftVersion;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.internal.matchers.apachecommons.ReflectionEquals;
@@ -17,8 +18,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Lukas Alt
@@ -26,6 +26,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 @ExtendWith(BaseTestInitialization.class)
 class PacketWrapperTest {
+
+    @Test
+    void testCurrentVersion() {
+        assertEquals(MinecraftVersion.TRAILS_AND_TAILS, MinecraftVersion.getCurrentVersion());
+    }
 
     @Test
     public void testConstructors() throws Exception {
@@ -78,7 +83,7 @@ class PacketWrapperTest {
                         && (filledPacket || value.getReturnType() != InternalStructure.class); // InternalStructures do not work for null values
             }).toList();
             for (Method getter : getters) {
-                if (getter.isAnnotationPresent(TestExclusion.class)) {
+                if (getter.isAnnotationPresent(TestExclusion.class) || getter.isAnnotationPresent(Deprecated.class)) {
                     continue;
                 }
                 Object value;
@@ -121,7 +126,8 @@ class PacketWrapperTest {
             }
 
         } catch (Throwable t) {
-            throw new RuntimeException("Getter/Setter test failed for " + packet.getHandle().getHandle().getClass() + " -> " + packet.getHandle().getType(), t);
+            throw
+                    new RuntimeException("Getter/Setter test failed for " + packet.getHandle().getHandle().getClass() + " -> " + packet.getHandle().getType(), t);
         }
     }
 

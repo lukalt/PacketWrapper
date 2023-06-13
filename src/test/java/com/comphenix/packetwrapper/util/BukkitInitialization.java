@@ -9,10 +9,10 @@ import org.apache.logging.log4j.LogManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.World;
-import org.bukkit.craftbukkit.v1_19_R3.CraftServer;
-import org.bukkit.craftbukkit.v1_19_R3.CraftWorld;
-import org.bukkit.craftbukkit.v1_19_R3.inventory.CraftItemFactory;
-import org.bukkit.craftbukkit.v1_19_R3.util.Versioning;
+import org.bukkit.craftbukkit.v1_20_R1.CraftServer;
+import org.bukkit.craftbukkit.v1_20_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_20_R1.inventory.CraftItemFactory;
+import org.bukkit.craftbukkit.v1_20_R1.util.Versioning;
 import org.spigotmc.SpigotWorldConfig;
 
 import java.lang.reflect.InvocationTargetException;
@@ -81,7 +81,6 @@ public class BukkitInitialization {
 
             String releaseTarget = MinecraftReflectionTestUtil.RELEASE_TARGET;
             String serverVersion = CraftServer.class.getPackage().getImplementationVersion();
-
             // Mock the server object
             Server mockedServer = mock(Server.class);
 
@@ -89,7 +88,6 @@ public class BukkitInitialization {
             when(mockedServer.getName()).thenReturn("Mock Server");
             when(mockedServer.getVersion()).thenReturn(serverVersion + " (MC: " + releaseTarget + ")");
             when(mockedServer.getBukkitVersion()).thenReturn(Versioning.getBukkitVersion());
-
             when(mockedServer.getItemFactory()).thenReturn(CraftItemFactory.instance());
             when(mockedServer.isPrimaryThread()).thenReturn(true);
 
@@ -113,7 +111,6 @@ public class BukkitInitialization {
 
             // Inject this fake server
             Bukkit.setServer(mockedServer);
-
             initialized = true;
         }
     }

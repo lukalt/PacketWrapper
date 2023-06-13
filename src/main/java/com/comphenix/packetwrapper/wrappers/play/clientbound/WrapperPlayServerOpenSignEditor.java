@@ -41,4 +41,23 @@ public class WrapperPlayServerOpenSignEditor extends AbstractPacket {
         this.handle.getBlockPositionModifier().write(0, value);
     }
 
+
+    /**
+     * Gets the field front text
+     * @since 1.20
+     * @return whether the opened editor is for the front or on the back of the sign
+     */
+    public boolean getIsFrontText() {
+        return this.handle.getBooleans().read(0);
+    }
+
+    /**
+     * Sets the field front text
+     * @since 1.20
+     * @param value whether the opened editor is for the front or on the back of the sign
+     */
+    public void setIsFrontText(boolean value) {
+        this.handle.getBooleans().write(0, value);
+    }
+
 }

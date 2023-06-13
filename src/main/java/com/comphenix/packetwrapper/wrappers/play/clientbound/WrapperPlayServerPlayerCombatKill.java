@@ -15,6 +15,8 @@ public class WrapperPlayServerPlayerCombatKill extends AbstractPacket {
      */
     public static final PacketType TYPE = PacketType.Play.Server.PLAYER_COMBAT_KILL;
 
+    private int dummyKillerId;
+
     public WrapperPlayServerPlayerCombatKill() {
         super(TYPE);
     }
@@ -43,20 +45,22 @@ public class WrapperPlayServerPlayerCombatKill extends AbstractPacket {
 
     /**
      * Retrieves the value of field 'killerId'
-     *
+     * @deprecated Removed in 1.20
      * @return 'killerId'
      */
+    @Deprecated
     public int getKillerId() {
-        return this.handle.getIntegers().read(1);
+        return this.dummyKillerId;
     }
 
     /**
      * Sets the value of field 'killerId'
-     *
+     * @deprecated Removed in 1.20
      * @param value New value for field 'killerId'
      */
+    @Deprecated
     public void setKillerId(int value) {
-        this.handle.getIntegers().write(1, value);
+        this.dummyKillerId = value;
     }
 
     /**

@@ -15,6 +15,8 @@ public class WrapperPlayServerPlayerCombatEnd extends AbstractPacket {
      */
     public static final PacketType TYPE = PacketType.Play.Server.PLAYER_COMBAT_END;
 
+    private int dummyKillerId;
+
     /**
      * Constructs a new wrapper and initialize it with a packet handle with default values
      */
@@ -28,20 +30,20 @@ public class WrapperPlayServerPlayerCombatEnd extends AbstractPacket {
 
     /**
      * Retrieves the value of field 'killerId'
-     *
+     * @deprecated Removed in 1.20
      * @return 'killerId'
      */
     public int getKillerId() {
-        return this.handle.getIntegers().read(0);
+        return this.dummyKillerId;
     }
 
     /**
      * Sets the value of field 'killerId'
-     *
+     * @deprecated Removed in 1.20
      * @param value New value for field 'killerId'
      */
     public void setKillerId(int value) {
-        this.handle.getIntegers().write(0, value);
+        this.dummyKillerId = value;
     }
 
     /**
@@ -50,7 +52,7 @@ public class WrapperPlayServerPlayerCombatEnd extends AbstractPacket {
      * @return 'duration'
      */
     public int getDuration() {
-        return this.handle.getIntegers().read(1);
+        return this.handle.getIntegers().read(0);
     }
 
     /**
@@ -59,7 +61,7 @@ public class WrapperPlayServerPlayerCombatEnd extends AbstractPacket {
      * @param value New value for field 'duration'
      */
     public void setDuration(int value) {
-        this.handle.getIntegers().write(1, value);
+        this.handle.getIntegers().write(0, value);
     }
 
 }
