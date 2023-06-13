@@ -1,0 +1,11 @@
+com.comphenix.packetwrapper
+com.comphenix.packetwrapper.util
+com.comphenix.packetwrapper.wrappers
+com.comphenix.packetwrapper.wrappers.data
+com.comphenix.packetwrapper.wrappers.handshaking
+com.comphenix.packetwrapper.wrappers.login.clientbound
+com.comphenix.packetwrapper.wrappers.login.serverbound
+com.comphenix.packetwrapper.wrappers.play.clientbound
+com.comphenix.packetwrapper.wrappers.play.serverbound
+com.comphenix.packetwrapper.wrappers.status.clientbound
+com.comphenix.packetwrapper.wrappers.status.serverbound
