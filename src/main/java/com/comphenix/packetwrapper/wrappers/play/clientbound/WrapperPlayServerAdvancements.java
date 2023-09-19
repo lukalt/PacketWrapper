@@ -1,10 +1,20 @@
 package com.comphenix.packetwrapper.wrappers.play.clientbound;
 
 import com.comphenix.packetwrapper.wrappers.AbstractPacket;
+import com.comphenix.packetwrapper.wrappers.data.ResourceKey;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.InternalStructure;
 import com.comphenix.protocol.events.PacketContainer;
+import com.comphenix.protocol.reflect.EquivalentConverter;
+import com.comphenix.protocol.utility.MinecraftReflection;
+import com.comphenix.protocol.wrappers.AutoWrapper;
+import com.comphenix.protocol.wrappers.BukkitConverters;
+import com.comphenix.protocol.wrappers.Converters;
 import com.comphenix.protocol.wrappers.MinecraftKey;
+import net.minecraft.advancements.AdvancementRequirements;
+import net.minecraft.advancements.AdvancementRewards;
+import org.bukkit.advancement.Advancement;
+import org.bukkit.advancement.AdvancementDisplay;
 
 import java.util.Map;
 import java.util.Set;
@@ -102,5 +112,37 @@ public class WrapperPlayServerAdvancements extends AbstractPacket {
     public void setProgressInternal(Map<MinecraftKey, InternalStructure> value) {
         this.handle.getMaps(MinecraftKey.getConverter(), InternalStructure.getConverter()).write(1, value); // TODO
     }
+
+    public static class WrappedSerializedAdvancement {
+        private final static Class<?> CLASS = MinecraftReflection.getMinecraftClass("advancements.Advancement");
+        public static final EquivalentConverter<WrappedSerializedAdvancement> CONVERTER = AutoWrapper.wrap(WrappedSerializedAdvancement.class,
+                        CLASS)
+                .field(0,MinecraftKey.getConverter()).field(1, MinecraftKey.getConverter())
+                .field(1, BukkitConverters.getAdvancementConverter())
+                .field(2, null)
+                .field(3, WrappedAdvancementRewards.CONVERTER)
+                .field(5, BukkitConverters.getMapConverter(Converters.passthrough(String.class), InternalStructure.getConverter()))
+                .field(6, Converters.passthrough(String[][].class))
+                .field(7, Converters.passthrough(boolean.class));
+
+        private MinecraftKey key;
+        private Advancement advancement;
+        private AdvancementDisplay display;
+        private WrappedAdvancementRewards rewards;
+
+        private Map<String, Object> criteria;
+
+        private String[][] requirementsE;
+
+        private AdvancementRequirements requirements;
+
+        private boolean sendsTelemetryData;
+    }
+
+    public static class WrappedAdvancementRewards {
+        public static final Class<?> CLASS = MinecraftReflection.getMinecraftClass("")
+        public static final EquivalentConverter<WrappedAdvancementRewards> CONVERTER = AutoWrapper.wrap(WrappedAdvancementRewards.class);
+    }
+
 
 }
