@@ -40,12 +40,22 @@ public class WrapperLoginClientStart extends AbstractPacket {
     }
 
     /**
-     * Retrieves the value of field 'profileId'
-     *
+     * Legacy method to get the profile id as an optional, which will be present every time
+     * @deprecated
      * @return 'profileId'
      */
+    @Deprecated
     public Optional<UUID> getProfileId() {
-        return this.handle.getOptionals(Converters.passthrough(UUID.class)).read(0);
+        return Optional.of(this.getProfileIdDirectly());
+    }
+
+
+    /**
+     * Retrieves the value of field 'profileId'
+     * @return 'profileId'
+     */
+    public UUID getProfileIdDirectly() {
+        return this.handle.getUUIDs().read(0);
     }
 
     /**
@@ -53,8 +63,8 @@ public class WrapperLoginClientStart extends AbstractPacket {
      *
      * @param value New value for field 'profileId'
      */
-    public void setProfileId(@Nullable UUID value) {
-        this.handle.getOptionals(Converters.passthrough(UUID.class)).write(0, Optional.ofNullable(value));
+    public void setProfileId(UUID value) {
+        this.getHandle().getUUIDs().write(0, value);
     }
 
 }
