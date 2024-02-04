@@ -29,7 +29,7 @@ class PacketWrapperTest {
 
     @Test
     void testCurrentVersion() {
-        assertEquals(MinecraftVersion.TRAILS_AND_TAILS, MinecraftVersion.getCurrentVersion());
+        assertEquals(MinecraftVersion.v1_20_4, MinecraftVersion.getCurrentVersion());
     }
 
     @Test
