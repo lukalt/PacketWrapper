@@ -3,6 +3,7 @@ package com.comphenix.packetwrapper.wrappers.play.clientbound;
 import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
+import com.comphenix.protocol.wrappers.ChunkCoordIntPair;
 
 public class WrapperPlayServerUnloadChunk extends AbstractPacket {
 
@@ -33,7 +34,7 @@ public class WrapperPlayServerUnloadChunk extends AbstractPacket {
      * @return 'x'
      */
     public int getX() {
-        return this.handle.getIntegers().read(0);
+        return this.handle.getChunkCoordIntPairs().read(0).getChunkX();
     }
 
     /**
@@ -42,7 +43,7 @@ public class WrapperPlayServerUnloadChunk extends AbstractPacket {
      * @param value New value for field 'x'
      */
     public void setX(int value) {
-        this.handle.getIntegers().write(0, value);
+        this.handle.getChunkCoordIntPairs().write(0, new ChunkCoordIntPair(value, this.handle.getChunkCoordIntPairs().read(0).getChunkZ()));
     }
 
     /**
@@ -51,7 +52,7 @@ public class WrapperPlayServerUnloadChunk extends AbstractPacket {
      * @return 'z'
      */
     public int getZ() {
-        return this.handle.getIntegers().read(1);
+        return this.handle.getChunkCoordIntPairs().read(0).getChunkZ();
     }
 
     /**
@@ -60,7 +61,14 @@ public class WrapperPlayServerUnloadChunk extends AbstractPacket {
      * @param value New value for field 'z'
      */
     public void setZ(int value) {
-        this.handle.getIntegers().write(1, value);
+        this.handle.getChunkCoordIntPairs().write(0, new ChunkCoordIntPair(this.handle.getChunkCoordIntPairs().read(0).getChunkX(), value));
     }
 
+    public ChunkCoordIntPair getChunkPos() {
+        return this.handle.getChunkCoordIntPairs().read(0);
+    }
+
+    public void setChunkPos(ChunkCoordIntPair chunkPos) {
+        this.handle.getChunkCoordIntPairs().write(0, chunkPos);
+    }
 }
