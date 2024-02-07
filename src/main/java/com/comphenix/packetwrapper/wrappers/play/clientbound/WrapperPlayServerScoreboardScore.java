@@ -100,4 +100,7 @@ public class WrapperPlayServerScoreboardScore extends AbstractPacket {
         this.handle.getScoreboardActions().write(0, value);
     }
 
+    // TODO replaced method with:
+    //  net.minecraft.network.chat.Component display
+    //  net.minecraft.network.chat.numbers.NumberFormat numberFormat
 }

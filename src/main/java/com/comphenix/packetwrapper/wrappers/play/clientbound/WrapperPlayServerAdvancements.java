@@ -49,6 +49,8 @@ public class WrapperPlayServerAdvancements extends AbstractPacket {
         this.handle.getBooleans().write(0, value);
     }
 
+
+    // TODO: changed added from List to Map
     /**
      * Retrieves the value of field 'added'
      *

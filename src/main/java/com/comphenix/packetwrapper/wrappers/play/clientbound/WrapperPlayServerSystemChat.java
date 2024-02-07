@@ -30,6 +30,7 @@ public class WrapperPlayServerSystemChat extends AbstractPacket {
         super(packet, TYPE);
     }
 
+    // TODO: string to net.minecraft.network.chat.Component content
     /**
      * Retrieves the message to be sent encoded as a JSON string
      *

@@ -169,4 +169,12 @@ public class WrapperPlayServerExplosion extends AbstractPacket {
         this.handle.getFloat().write(3, value);
     }
 
+    // TODO: new fields
+    /*
+    net.minecraft.core.particles.ParticleOptions smallExplosionParticles
+    net.minecraft.core.particles.ParticleOptions largeExplosionParticles
+    net.minecraft.world.level.Explosion$BlockInteraction blockInteraction
+    net.minecraft.sounds.SoundEvent explosionSound
+     */
+
 }

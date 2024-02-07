@@ -412,3 +412,21 @@ public class WrapperPlayServerLogin extends AbstractPacket {
 
 
 }
+
+// TODO: added boolean doLimitedCrafting
+
+// TODO:
+// Moved to separate class: net.minecraft.network.protocol.game.CommonPlayerSpawnInfo commonPlayerSpawnInfo
+/*
+net.minecraft.world.level.GameType gameType
+net.minecraft.world.level.GameType previousGameType
+net.minecraft.core.RegistryAccess$Frozen registryHolder
+net.minecraft.resources.ResourceKey dimensionType
+net.minecraft.resources.ResourceKey dimension
+long seed
+boolean isDebug
+boolean isFlat
+java.util.Optional lastDeathLocation
+int portalCooldown
+net.minecraft.resources.RegistryOps BUILTIN_CONTEXT_OPS
+ */

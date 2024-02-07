@@ -106,6 +106,8 @@ public class WrapperPlayServerScoreboardObjective extends AbstractPacket {
         this.handle.getIntegers().write(0, value);
     }
 
+    // TODO: add field net.minecraft.network.chat.numbers.NumberFormat numberFormat
+
     /**
      * Retrieves the method for this operation
      *

@@ -256,3 +256,14 @@ public class WrapperPlayServerRespawn extends AbstractPacket {
     }
 
 }
+// TODO added field byte dataToKeep
+// TODO moved to new class: net.minecraft.resources.ResourceKey dimensionType: net.minecraft.network.protocol.game.CommonPlayerSpawnInfo commonPlayerSpawnInfo
+//net.minecraft.resources.ResourceKey dimension
+//long seed
+//net.minecraft.world.level.GameType playerGameType
+//net.minecraft.world.level.GameType previousPlayerGameType
+//boolean isDebug
+//boolean isFlat
+//byte dataToKeep
+//java.util.Optional lastDeathLocation
+//int portalCooldown

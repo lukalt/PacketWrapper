@@ -11,9 +11,9 @@ import com.comphenix.protocol.wrappers.Converters;
 public class Vector3I extends AbstractWrapper {
     public final static Class<?> HANDLE_TYPE = MinecraftReflection.getMinecraftClass("core.BaseBlockPosition", "core.Vec3i");
 
-    private static FieldAccessor FIELD_X_ACCESSOR = Accessors.getFieldAccessorArray(HANDLE_TYPE, int.class, true)[0];
-    private static FieldAccessor FIELD_Y_ACCESSOR = Accessors.getFieldAccessorArray(HANDLE_TYPE, int.class, true)[1];
-    private static FieldAccessor FIELD_Z_ACCESSOR = Accessors.getFieldAccessorArray(HANDLE_TYPE, int.class, true)[2];
+    private static final FieldAccessor FIELD_X_ACCESSOR = Accessors.getFieldAccessorArray(HANDLE_TYPE, int.class, true)[0];
+    private static final FieldAccessor FIELD_Y_ACCESSOR = Accessors.getFieldAccessorArray(HANDLE_TYPE, int.class, true)[1];
+    private static final FieldAccessor FIELD_Z_ACCESSOR = Accessors.getFieldAccessorArray(HANDLE_TYPE, int.class, true)[2];
     private static ConstructorAccessor CONSTRUCTOR = null;
 
     public Vector3I(Object handle) {

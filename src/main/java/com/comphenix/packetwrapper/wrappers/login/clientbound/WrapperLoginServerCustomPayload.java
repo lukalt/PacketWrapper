@@ -39,6 +39,7 @@ public class WrapperLoginServerCustomPayload extends AbstractPacket {
         this.handle.getIntegers().write(0, value);
     }
 
+    // todo: identifier + data = CustomQueryPayload
     /**
      * Retrieves the value of field 'identifier'
      *

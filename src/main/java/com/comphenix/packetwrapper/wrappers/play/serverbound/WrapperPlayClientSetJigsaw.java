@@ -134,4 +134,20 @@ public class WrapperPlayClientSetJigsaw extends AbstractPacket {
         ALIGNED
     }
 
+    public int getSelectionPriority() {
+        return this.handle.getIntegers().read(0);
+    }
+
+    public void setSelectionPriority(int priority) {
+        this.handle.getIntegers().write(0, priority);
+    }
+
+    public int getPlacementPriority() {
+        return this.handle.getIntegers().read(1);
+    }
+
+    public void setPlacementPriority(int priority) {
+        this.handle.getIntegers().write(1, priority);
+    }
+
 }

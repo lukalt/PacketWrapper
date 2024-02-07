@@ -4,7 +4,7 @@
 [![Javadoc](https://img.shields.io/badge/JavaDoc-Online-green)](https://lukalt.github.io/PacketWrapper/javadocs/apidocs)
 ![GitHub](https://img.shields.io/github/license/lukalt/PacketWrapper)
 [![ProtocolLib](https://img.shields.io/badge/ProtocolLib-5.1.0-blue)](https://github.com/dmulloy2/ProtocolLib/releases/tag/5.1.0)
-[![ProtocolLib](https://img.shields.io/badge/Minecraft%201.20.1-green)](https://papermc.io/downloads/paper)
+[![ProtocolLib](https://img.shields.io/badge/Minecraft%201.20.4-green)](https://papermc.io/downloads/paper)
 
 *This version requires ProtocolLib 5.1.0 or later: https://github.com/dmulloy2/ProtocolLib/releases/tag/5.1.0*
 
@@ -12,7 +12,7 @@ This is an unofficial continuation of PacketWrapper by dmulloy2 and aadnk. The o
 
 When reading and writing packets in [ProtocolLib](http://www.spigotmc.org/resources/protocollib.1997/), it is necessary to know the order in which the fields are stored in memory. This requires you to decompile the Minecraft source code with [JD-GUI](http://jd.benow.ca/) or find it in the Spigot work directory (/work/decompile/), while decoding the meaning of a field by looking up an online [wiki](http://www.wiki.vg/Protocol) resource ([tutorial](http://forums.bukkit.org/threads/lib-1-4-6-protocollib-2-0-0-safely-and-easily-modify-sent-and-recieved-packets.101035/page-2#post-1366140)). It would be much easier if these packets could be accessed as any other normal Java bean. 
 
-Enter PacketWrapper. It contains wrapper classes for all known packets in 1.20, providing you with access to the fields by name, along with automatic conversion to existing Bukkit enumerations and classes. It also includes a number of custom enumerations when appropriate.
+Enter PacketWrapper. It contains wrapper classes for all known packets in 1.20.4, providing you with access to the fields by name, along with automatic conversion to existing Bukkit enumerations and classes. It also includes a number of custom enumerations when appropriate.
 
 ### How to use
 
@@ -36,7 +36,7 @@ Then register the dependency in your pom.xml. If you prefer to install PacketWra
     <dependency>
         <groupId>com.comphenix.packetwrapper</groupId>
         <artifactId>PacketWrapper</artifactId>
-        <version>1.20-2.2.1</version>
+        <version>1.20.4-2.3.0</version>
         <scope>provided</scope>
     </dependency>
 </dependencies>
