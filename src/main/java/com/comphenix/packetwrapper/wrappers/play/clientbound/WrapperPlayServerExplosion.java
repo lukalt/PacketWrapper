@@ -1,9 +1,14 @@
 package com.comphenix.packetwrapper.wrappers.play.clientbound;
 
 import com.comphenix.packetwrapper.wrappers.AbstractPacket;
+import com.comphenix.packetwrapper.wrappers.data.WrappedSoundEvent;
+import com.comphenix.packetwrapper.wrappers.handshaking.WrapperHandshakingClientSetProtocol;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
+import com.comphenix.protocol.reflect.EquivalentConverter;
+import com.comphenix.protocol.utility.MinecraftReflection;
 import com.comphenix.protocol.wrappers.BlockPosition;
+import com.comphenix.protocol.wrappers.EnumWrappers;
 
 import java.util.List;
 
@@ -13,6 +18,13 @@ public class WrapperPlayServerExplosion extends AbstractPacket {
      * The packet type that is wrapped by this wrapper.
      */
     public static final PacketType TYPE = PacketType.Play.Server.EXPLOSION;
+
+    public enum BlockInteraction {
+        KEEP, DESTROY, DESTROY_WITH_DECAY, TRIGGER_BLOCK
+    }
+    private static final Class<?> BLOCK_INTERACTION_CLASS = MinecraftReflection.getNullableNMS("world.level.Explosion$BlockInteraction", "world.level.Explosion$BlockInteraction");
+    private static final EquivalentConverter<BlockInteraction> BLOCK_INTERACTION_CONVERTER = new EnumWrappers.IndexedEnumConverter<>(BlockInteraction.class, BLOCK_INTERACTION_CLASS);
+
 
     /**
      * Constructs a new wrapper and initialize it with a packet handle with default values
@@ -169,12 +181,27 @@ public class WrapperPlayServerExplosion extends AbstractPacket {
         this.handle.getFloat().write(3, value);
     }
 
+
+
+    public BlockInteraction getBlockInteraction() {
+        return this.handle.getModifier().withType(BLOCK_INTERACTION_CLASS, BLOCK_INTERACTION_CONVERTER).read(0);
+    }
+
+    public void setBlockInteraction(BlockInteraction interaction) {
+        this.handle.getModifier().withType(BLOCK_INTERACTION_CLASS, BLOCK_INTERACTION_CONVERTER).write(0, interaction);
+    }
+
+    public WrappedSoundEvent getExplosionSound() {
+        return this.handle.getModifier().withType(WrappedSoundEvent.SOUND_EVENT_CLASS, WrappedSoundEvent.CONVERTER).read(0);
+    }
+
+    public void setExplosionSound(WrappedSoundEvent explosionSound) {
+        this.handle.getModifier().withType(WrappedSoundEvent.SOUND_EVENT_CLASS, WrappedSoundEvent.CONVERTER).write(0, explosionSound);
+    }
     // TODO: new fields
     /*
     net.minecraft.core.particles.ParticleOptions smallExplosionParticles
     net.minecraft.core.particles.ParticleOptions largeExplosionParticles
-    net.minecraft.world.level.Explosion$BlockInteraction blockInteraction
-    net.minecraft.sounds.SoundEvent explosionSound
      */
 
 }

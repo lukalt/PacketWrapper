@@ -4,6 +4,7 @@ import com.comphenix.packetwrapper.util.TestExclusion;
 import com.comphenix.packetwrapper.wrappers.AbstractPacket;
 import com.comphenix.packetwrapper.wrappers.data.ResourceKey;
 import com.comphenix.packetwrapper.wrappers.data.Vector3I;
+import com.comphenix.packetwrapper.wrappers.data.WrappedCommonPlayerSpawnInfo;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.InternalStructure;
 import com.comphenix.protocol.events.PacketContainer;
@@ -32,6 +33,14 @@ public class WrapperPlayServerLogin extends AbstractPacket {
 
     public WrapperPlayServerLogin(PacketContainer packet) {
         super(packet, TYPE);
+    }
+
+    public WrappedCommonPlayerSpawnInfo getCommonPlayerSpawnInfo() {
+        return getHandle().getModifier().withType(WrappedCommonPlayerSpawnInfo.HANDLE_TYPE, WrappedCommonPlayerSpawnInfo.getConverter()).read(0);
+    }
+
+    public void setCommonPlayerSpawnInfo(WrappedCommonPlayerSpawnInfo commonPlayerSpawnInfo) {
+        getHandle().getModifier().withType(WrappedCommonPlayerSpawnInfo.HANDLE_TYPE, WrappedCommonPlayerSpawnInfo.getConverter()).write(0, commonPlayerSpawnInfo);
     }
 
     /**
@@ -152,7 +161,7 @@ public class WrapperPlayServerLogin extends AbstractPacket {
      */
     @Deprecated
     public InternalStructure getDimensionTypeInternal() {
-        return this.handle.getStructures().read(3);
+        return getCommonPlayerSpawnInfo().getDimensionTypeInternal();
     }
 
     /**
@@ -163,7 +172,7 @@ public class WrapperPlayServerLogin extends AbstractPacket {
      */
     @Deprecated
     public void setDimensionTypeInternal(InternalStructure value) {
-        this.handle.getStructures().write(3, value);
+        getCommonPlayerSpawnInfo().setDimensionTypeInternal(value);
     }
 
 
@@ -174,7 +183,7 @@ public class WrapperPlayServerLogin extends AbstractPacket {
      * @return 'dimensionType'
      */
     public ResourceKey getDimensionType() {
-        return this.handle.getModifier().withType(MinecraftReflection.getResourceKey(), ResourceKey.CONVERTER).read(1);
+        return getCommonPlayerSpawnInfo().getDimensionType();
     }
 
     /**
@@ -184,7 +193,7 @@ public class WrapperPlayServerLogin extends AbstractPacket {
      * @param value New value for field 'dimensionType'
      */
     public void setDimensionType(ResourceKey value) {
-        this.handle.getModifier().withType(MinecraftReflection.getResourceKey(), ResourceKey.CONVERTER).write(1, value);
+        getCommonPlayerSpawnInfo().setDimensionType(value);
     }
 
     /**
@@ -225,7 +234,7 @@ public class WrapperPlayServerLogin extends AbstractPacket {
      * @param value New value for field 'dimension'
      */
     public void setDimension(World value) {
-        this.handle.getWorldKeys().write(0, value);
+        this.getCommonPlayerSpawnInfo().setDimension(value);
     }
 
     /**
